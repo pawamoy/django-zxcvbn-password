@@ -23,6 +23,7 @@ class RegisterForm(forms.Form):
 ```
 
 Remember to include `{{ form.media }}` in your template.
+Please refer to the documentation of the two upstream repository for more information.
 
 Screenshot
 ----------
