@@ -1,8 +1,9 @@
+import zxcvbn
+
 from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
 
-import zxcvbn
 
 # Settings
 PASSWORD_MIN_LENGTH = getattr(settings, "PASSWORD_MIN_LENGTH", 8)

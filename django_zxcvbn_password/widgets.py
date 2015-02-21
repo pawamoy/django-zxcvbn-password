@@ -65,7 +65,7 @@ class PasswordConfirmationInput(PasswordInput):
                 <span style="margin-left:5px;">%s</span>
             </p>
         </div>
-        """ % (_('Warning'), _('Your passwords don\'t match.'))
+        """ % (_('Warning'), _("Your passwords don't match."))
 
         try:
             self.attrs['class'] = '%s password_confirmation'.strip()\
