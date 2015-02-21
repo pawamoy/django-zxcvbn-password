@@ -11,14 +11,13 @@ setup(
     name='django-zxcvbn-password',
     version='v1.0',
     packages=['django_zxcvbn_password'],
-    include_package_data=True,
     license='BSD License',
-    
+
     author='Timothée Mazzucotelli',
     author_email='timothee.mazzucotelli@gmail.com',
     url='https://github.com/Pawamoy/django-zxcvbn-password',
     download_url = 'https://github.com/Pawamoy/django-zxcvbn-password/tarball/v1.0',
-    
+
     keywords="password validation front back zxcvbn confirmation field",
     description="A front-end and back-end password validation field using ZXCVBN.",
     classifiers=[
