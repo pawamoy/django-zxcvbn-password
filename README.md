@@ -1,4 +1,4 @@
-zxcvbn_password
+django-zxcvbn-password
 =======
 
 A combination of
