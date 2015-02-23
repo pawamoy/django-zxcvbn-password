@@ -8,6 +8,20 @@ Django apps.
 
 It combines back-end and front-end validation with strength meter display.
 
+Installation
+------------
+
+Run `pip install django-zxcvbn-password`  
+Then in your settings:
+
+```python
+INSTALLED_APPS = (
+    ...
+    ‘django-zxcvbn-password’,
+    ...
+)
+```
+
 Usage
 -----
 
@@ -15,7 +29,7 @@ Usage
 # forms.py
 
 from django import forms
-from zxcvbn_password.fields import PasswordField, PasswordConfirmationField
+from django_zxcvbn_password.fields import PasswordField, PasswordConfirmationField
 
 class RegisterForm(forms.Form):
     password1 = PasswordField()
@@ -29,6 +43,22 @@ Screenshot
 ----------
 
 ![Screenshot](http://img15.hostingpics.net/pics/295712Capturedu20150201153746.png)
+
+
+Configuration
+-------------
+
+You can configure minimum and maximum length of the password,
+and the minimum entropy (refer to zxcvbn documentation for more details).
+The following values are the default:
+
+```python
+# settings.py
+
+PASSWORD_MIN_LENGTH = 8
+PASSWORD_MAX_LENGTH = 128
+PASSWORD_MIN_ENTROPY = 25
+```
 
 License
 -------
