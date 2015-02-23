@@ -17,7 +17,7 @@ Then in your settings:
 ```python
 INSTALLED_APPS = (
     ...
-    ‘django-zxcvbn-password’,
+    ‘django_zxcvbn_password’,
     ...
 )
 ```
