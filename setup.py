@@ -11,6 +11,7 @@ setup(
     name='django-zxcvbn-password',
     version='1.0.2',
     packages=['zxcvbn_password'],
+    include_package_data=True,
     license='BSD License',
 
     author='Timothée Mazzucotelli',
