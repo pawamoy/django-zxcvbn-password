@@ -35,6 +35,7 @@ Usage
         password1 = PasswordField()
         password2 = PasswordConfirmationField(confirm_with=’password1’)
 
+
 .. note::
 
     Remember to include ``{{ form.media }}`` in your template.
