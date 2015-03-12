@@ -1,7 +1,7 @@
 from django.forms import CharField
-from django_zxcvbn_password.validators import (
+from zxcvbn_password.validators import (
     length_validator, zxcvbn_validator, max_length_validator)
-from django_zxcvbn_password.widgets import (
+from zxcvbn_password.widgets import (
     PasswordStrengthInput, PasswordConfirmationInput)
 
 

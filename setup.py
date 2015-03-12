@@ -9,14 +9,14 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='django-zxcvbn-password',
-    version='v1.0',
-    packages=['django_zxcvbn_password'],
+    version='1.0.1',
+    packages=['zxcvbn_password'],
     license='BSD License',
 
     author='Timothée Mazzucotelli',
     author_email='timothee.mazzucotelli@gmail.com',
     url='https://github.com/Pawamoy/django-zxcvbn-password',
-    download_url = 'https://github.com/Pawamoy/django-zxcvbn-password/tarball/v1.0',
+    download_url = 'https://github.com/Pawamoy/django-zxcvbn-password/tarball/1.0.1',
 
     keywords="password validation front back zxcvbn confirmation field",
     description="A front-end and back-end password validation field using ZXCVBN.",
