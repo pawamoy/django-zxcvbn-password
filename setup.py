@@ -11,7 +11,7 @@ setup(
     name='django-zxcvbn-password',
     version='1.0.3.0',
     packages=['zxcvbn_password'],
-    package_data={'': '*.js'},
+    package_data={'': ['*.js']},
     include_package_data=True,
     license='BSD License',
 
