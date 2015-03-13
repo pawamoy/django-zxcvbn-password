@@ -9,11 +9,11 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='django-zxcvbn-password',
-    version='1.0.3.0',
+    version='1.0.4',
     packages=['zxcvbn_password'],
-    package_data={'': ['*.js']},
-    include_package_data=True,
-    license='BSD License',
+    package_data={'': ['static/zxcvbn_password/js/*.js']},
+    # include_package_data=True,
+    license='BSD',
 
     author='Timothée Mazzucotelli',
     author_email='timothee.mazzucotelli@gmail.com',
