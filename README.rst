@@ -17,7 +17,7 @@ Run ``pip install django-zxcvbn-password``. Then in your settings:
 
     INSTALLED_APPS = (
         ...
-        ‘django_zxcvbn_password’,
+        ‘zxcvbn_password’,
         ...
     )
 
@@ -29,7 +29,7 @@ Usage
     # forms.py
 
     from django import forms
-    from django_zxcvbn_password.fields import PasswordField, PasswordConfirmationField
+    from zxcvbn_password.fields import PasswordField, PasswordConfirmationField
 
     class RegisterForm(forms.Form):
         password1 = PasswordField()
@@ -39,7 +39,7 @@ Usage
 .. note::
 
     Remember to include ``{{ form.media }}`` in your template.
-    Please refer to the documentation of the two upstream repository for more information.
+    Please refer to the documentation of the two upstream repositories for more information.
 
 Screenshot
 ----------
