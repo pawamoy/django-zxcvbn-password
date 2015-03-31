@@ -61,6 +61,21 @@ The following values are the default:
     PASSWORD_MIN_LENGTH = 8
     PASSWORD_MAX_LENGTH = 128
     PASSWORD_MIN_ENTROPY = 25
+    
+You can also configure the messages that are displayed when one of these criteria is not respected.
+For minimum and maximum length messages, you may use a ``%s``:
+it will take the value of the minimum / maximum length.
+These options are optional, there already are default messages.
+
+.. code:: python
+
+    # settings.py
+    
+    from django.utils.translation import ugettext_lazy as _
+
+    PASSWORD_MIN_LENGTH_MESSAGE = _("Please use at least %s characters!")
+    PASSWORD_MAX_LENGTH_MESSAGE = _("Wow, there are too much now! The maximum is %s.")
+    PASSWORD_MIN_ENTROPY_MESSAGE = _("The complexity of your password is not sufficient...")
 
 License
 -------
