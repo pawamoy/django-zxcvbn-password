@@ -2,17 +2,16 @@
 # -*- coding: utf-8 -*-
 
 import os
-from distutils.core import setup
+from setuptools import setup
 
 # allow setup.py to be run from any path
 os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='django-zxcvbn-password',
-    version='1.0.4',
+    version='1.0.5',
     packages=['zxcvbn_password'],
-    package_data={'': ['static/zxcvbn_password/js/*.js']},
-    # include_package_data=True,
+    include_package_data=True,
     license='BSD',
 
     author='Timothée Mazzucotelli',
