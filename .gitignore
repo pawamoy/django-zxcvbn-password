@@ -3,3 +3,4 @@ build/
 MANIFEST
 stats/
 *.egg-info
+*.pyc
