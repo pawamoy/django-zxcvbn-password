@@ -1,5 +1,6 @@
-import zxcvbn
+# -*- coding: utf-8 -*-
 
+import zxcvbn
 from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
@@ -9,9 +10,16 @@ from django.conf import settings
 PASSWORD_MIN_LENGTH = getattr(settings, "PASSWORD_MIN_LENGTH", 8)
 PASSWORD_MAX_LENGTH = getattr(settings, "PASSWORD_MAX_LENGTH", 128)
 PASSWORD_MIN_ENTROPY = getattr(settings, "ZXCVBN_MIN_ENTROPY", 25)
-PASSWORD_MIN_LENGTH_MESSAGE = getattr(settings, "PASSWORD_MIN_LENGTH_MESSAGE", "Password must be %s characters or more.")
-PASSWORD_MAX_LENGTH_MESSAGE = getattr(settings, "PASSWORD_MAX_LENGTH_MESSAGE", "Password must be %s characters or less.")
-PASSWORD_MIN_ENTROPY_MESSAGE = getattr(settings, "PASSWORD_MIN_ENTROPY_MESSAGE", "Password must be more complex")
+PASSWORD_MIN_LENGTH_MESSAGE = getattr(
+    settings, "PASSWORD_MIN_LENGTH_MESSAGE",
+    _("Password must be %s characters or more."))
+PASSWORD_MAX_LENGTH_MESSAGE = getattr(
+    settings, "PASSWORD_MAX_LENGTH_MESSAGE",
+    _("Password must be %s characters or less."))
+PASSWORD_MIN_ENTROPY_MESSAGE = getattr(
+    settings, "PASSWORD_MIN_ENTROPY_MESSAGE",
+    _("Password must be more complex"))
+
 
 class LengthValidator(object):
     code = "length"
