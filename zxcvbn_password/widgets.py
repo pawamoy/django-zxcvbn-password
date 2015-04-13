@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+from builtins import object
 from django.forms import PasswordInput
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext as _
@@ -36,7 +38,7 @@ class PasswordStrengthInput(PasswordInput):
         return mark_safe(super(PasswordInput, self).render(
             name, value, attrs) + strength_markup)
 
-    class Media:
+    class Media(object):
         js = (
             'zxcvbn_password/js/zxcvbn.js',
             'zxcvbn_password/js/password_strength.js',
