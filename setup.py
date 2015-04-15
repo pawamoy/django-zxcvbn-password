@@ -17,10 +17,10 @@ setup(
     author='Timothée Mazzucotelli',
     author_email='timothee.mazzucotelli@gmail.com',
     url='https://github.com/Pawamoy/django-zxcvbn-password',
-    # download_url = 'https://github.com/Pawamoy/django-zxcvbn-password/tarball/1.0.2',
 
     keywords="password validation front back zxcvbn confirmation field",
-    description="A front-end and back-end password validation field using ZXCVBN.",
+    description="A front-end and back-end "
+                "password validation field using ZXCVBN.",
     classifiers=[
         "Environment :: Web Environment",
         "Framework :: Django",
@@ -28,6 +28,8 @@ setup(
         "Topic :: Internet :: WWW/HTTP",
         "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
         "Programming Language :: Python",
+        "Programming Language :: Python :: 2",
+        "Programming Language :: Python :: 3",
         "Operating System :: OS Independent",
         "License :: OSI Approved :: BSD License",
     ]

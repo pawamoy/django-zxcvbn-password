@@ -14,7 +14,15 @@ class PasswordStrengthInput(PasswordInput):
         strength_markup = """
         <div style="margin-top: 10px;">
             <div class="progress" style="margin-bottom: 10px;">
-                <div class="progress-bar progress-bar-warning password_strength_bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="5" style="width: 0%%"></div>
+                <div class="progress-bar
+                            progress-bar-warning
+                            password_strength_bar"
+                     role="progressbar"
+                     aria-valuenow="0"
+                     aria-valuemin="0"
+                     aria-valuemax="5"
+                     style="width: 0%%">
+                </div>
             </div>
             <p class="text-muted password_strength_info hidden">
                 <span class="label label-danger">
