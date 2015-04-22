@@ -1,6 +1,0 @@
-<?xml version="1.0"?>
-<todo version="0.1.20">
-    <note priority="medium" time="1426166639">
-        ZXCVBN js code should import dictionaries from files instead of hardcoding them. It would allow to use dictionaries with other languages too. It would be great to be able to choose which dicts are used when using the app.
-    </note>
-</todo>
