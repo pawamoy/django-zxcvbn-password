@@ -12,7 +12,7 @@ class PasswordStrengthInput(PasswordInput):
 
     def render(self, name, value, attrs=None):
         strength_markup = """
-        <div style="margin-top: 10px;">
+        <div class="progress-bloc" style="margin-top: 10px;">
             <div class="progress" style="margin-bottom: 10px;">
                 <div class="progress-bar
                             progress-bar-warning
