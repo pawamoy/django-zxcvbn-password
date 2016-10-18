@@ -1,12 +1,11 @@
-from __future__ import unicode_literals
-from builtins import object
 # -*- coding: utf-8 -*-
+from __future__ import unicode_literals
 
-import zxcvbn
+from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _
-from django.conf import settings
 
+import zxcvbn
 
 # Settings
 PASSWORD_MIN_LENGTH = getattr(settings, "PASSWORD_MIN_LENGTH", 8)

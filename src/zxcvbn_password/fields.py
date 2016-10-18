@@ -1,9 +1,12 @@
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+
 from django.forms import CharField
+
 from zxcvbn_password.validators import (
-    length_validator, zxcvbn_validator, max_length_validator)
+    length_validator, max_length_validator, zxcvbn_validator)
 from zxcvbn_password.widgets import (
-    PasswordStrengthInput, PasswordConfirmationInput)
+    PasswordConfirmationInput, PasswordStrengthInput)
 
 
 class PasswordField(CharField):
