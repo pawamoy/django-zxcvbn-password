@@ -1,0 +1,16 @@
+[paths]
+source =
+   src/zxcvbn_password
+   */site-packages/zxcvbn_password
+
+[run]
+branch = true
+source =
+    zxcvbn_password
+    tests
+parallel = true
+
+[report]
+show_missing = true
+precision = 2
+omit = *migrations*

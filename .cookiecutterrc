@@ -1,0 +1,50 @@
+# This file exists so you can easily regenerate your project.
+#
+# `cookiepatcher` is a convenient shim around `cookiecutter`
+# for regenerating projects (it will generate a .cookiecutterrc 
+# automatically for any template). To use it:
+#
+#    pip install cookiepatcher
+#    cookiepatcher gh:ionelmc/cookiecutter-pylibrary project-path
+#
+# See:
+#    https://pypi.python.org/pypi/cookiecutter
+#
+# Alternatively, you can run:
+#
+#    cookiecutter --overwrite-if-exists --config-file=project-path/.cookiecutterrc gh:ionelmc/cookiecutter-pylibrary
+
+default_context:
+
+    appveyor:                  'no'
+    c_extension_cython:        'no'
+    c_extension_optional:      'no'
+    c_extension_support:       'no'
+    codacy:                    'no'
+    codeclimate:               'no'
+    codecov:                   'yes'
+    command_line_interface:    'no'
+    command_line_interface_bin_name: 'django-zxcvbn-password'
+    coveralls:                 'no'
+    distribution_name:         'django-zxcvbn-password'
+    email:                     'timothee.mazzucotelli@gmail.com'
+    full_name:                 'Timothee Mazzucotelli'
+    github_username:           'Pawamoy'
+    landscape:                 'yes'
+    license:                   'MPL 2.0'
+    package_name:              'zxcvbn_password'
+    project_name:              'Django ZXCVBN Password'
+    project_short_description: 'Back-end and Front-end password validation with ZXCVBN.'
+    release_date:              'today'
+    repo_name:                 'django-zxcvbn-password'
+    requiresio:                'no'
+    scrutinizer:               'no'
+    sphinx_doctest:            'no'
+    sphinx_theme:              'sphinx-rtd-theme'
+    test_matrix_configurator:  'no'
+    test_matrix_separate_coverage: 'no'
+    test_runner:               'pytest'
+    travis:                    'yes'
+    version:                   '1.1.0'
+    website:                   'http://pawamoy.github.io/'
+    year:                      'now'
