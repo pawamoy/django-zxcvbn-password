@@ -58,7 +58,7 @@ Installation
 Documentation
 =============
 
-https://github.com/Pawamoy/django-zxcvbn-password.wiki
+https://github.com/Pawamoy/django-zxcvbn-password/wiki
 
 Development
 ===========
