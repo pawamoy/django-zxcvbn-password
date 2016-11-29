@@ -7,7 +7,6 @@ import re
 from glob import glob
 from os.path import basename, dirname, join, splitext
 
-
 from setuptools import find_packages, setup
 
 
@@ -44,21 +43,20 @@ setup(
         'Operating System :: Unix',
         'Operating System :: POSIX',
         'Operating System :: Microsoft :: Windows',
+        'Framework :: Django',
         'Programming Language :: Python',
         'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: Implementation :: CPython',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: Implementation :: PyPy',
-        # uncomment if you test on these interpreters:
-        # 'Programming Language :: Python :: Implementation :: IronPython',
-        # 'Programming Language :: Python :: Implementation :: Jython',
-        # 'Programming Language :: Python :: Implementation :: Stackless',
         'Topic :: Utilities',
     ],
     keywords=[
-        # eg: 'keyword1', 'keyword2', 'keyword3',
+        'django-zxcvbn-password',
     ],
     install_requires=[
-        'django', 'zxcvbn'
+        'zxcvbn'
     ],
     extras_require={
         # eg:

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #!/usr/bin/env python
 import os
 import sys
@@ -13,3 +14,12 @@ if __name__ == "__main__":
     test_runner = TestRunner()
     failures = test_runner.run_tests(["tests"])
     sys.exit(bool(failures))
+=======
+# -*- coding: utf-8 -*-
+
+import zxcvbn_password
+
+
+def test_main():
+    assert zxcvbn_password  # use your library here
+>>>>>>> template
