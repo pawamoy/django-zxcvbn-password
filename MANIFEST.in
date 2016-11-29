@@ -1,0 +1,25 @@
+graft examples
+graft src
+graft ci
+graft tests
+
+include .bumpversion.cfg
+include .coveragerc
+include .cookiecutterrc
+include .editorconfig
+include .isort.cfg
+
+include AUTHORS.rst
+include CHANGELOG.rst
+include CONTRIBUTING.rst
+include LICENSE
+include README.rst
+
+include tox.ini
+include .style.yapf
+
+include *.yml
+
+recursive-include requirements *.txt
+
+global-exclude *.py[cod] __pycache__ *.so *.dylib release.sh update.sh
