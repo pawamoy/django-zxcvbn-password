@@ -59,7 +59,7 @@ setup(
         'django-zxcvbn-password',
     ],
     install_requires=[
-        'zxcvbn'
+        'git+https://github.com/moreati/python-zxcvbn'
     ],
     extras_require={
         # eg:
