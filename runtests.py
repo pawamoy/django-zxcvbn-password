@@ -23,7 +23,8 @@ try:
             'zxcvbn_password',
         ],
         SITE_ID=1,
-        MIDDLEWARE_CLASSES=()
+        MIDDLEWARE_CLASSES=(),
+        SECRET_KEY='fake-key'
     )
 
     try:
