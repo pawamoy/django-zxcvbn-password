@@ -1,7 +1,16 @@
 # -*- coding: utf-8 -*-
 
+from django.test import TestCase
+
 import zxcvbn_password
 
 
-def test_main():
-    assert zxcvbn_password  # use your library here
+class MainTestCase(TestCase):
+    def setUp(self):
+        pass
+
+    def test_main(self):
+        assert zxcvbn_password
+
+    def tearDown(self):
+        pass

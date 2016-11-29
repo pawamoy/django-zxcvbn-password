@@ -5,16 +5,24 @@ env:
   - TOXENV=check
 
 
-  - TOXENV=py27,codecov
+  - TOXENV=py27-django-18,codecov
+  - TOXENV=py27-django-19,codecov
+  - TOXENV=py27-django-110,codecov
 
 
-  - TOXENV=py34,codecov
+  - TOXENV=py34-django-18,codecov
+  - TOXENV=py34-django-19,codecov
+  - TOXENV=py34-django-110,codecov
 
 
-  - TOXENV=py35,codecov
+  - TOXENV=py35-django-18,codecov
+  - TOXENV=py35-django-19,codecov
+  - TOXENV=py35-django-110,codecov
 
 
-  - TOXENV=pypy,codecov
+  - TOXENV=pypy-django-18,codecov
+  - TOXENV=pypy-django-19,codecov
+  - TOXENV=pypy-django-110,codecov
 
 matrix:
   fast_finish: true
@@ -23,7 +31,7 @@ before_install:
   - uname -a
   - lsb_release -a
   - pip install codecov
-  
+  - pip install django
 install:
   - pip install tox
   - pip install -r requirements/ci.txt

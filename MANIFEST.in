@@ -19,6 +19,7 @@ include tox.ini
 include .style.yapf
 
 include *.yml
+include runtests.py
 
 recursive-include requirements *.txt
 

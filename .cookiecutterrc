@@ -24,7 +24,7 @@ default_context:
     command_line_interface_bin_name: 'django-zxcvbn-password'
     coveralls:                       'no'
     distribution_name:               'django-zxcvbn-password'
-    django:                          'no'
+    django:                          'yes'
     django_fake_model:               'no'
     django_versions:                 '1.8,1.9,1.10'
     email:                           'timothee.mazzucotelli@gmail.com'

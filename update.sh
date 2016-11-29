@@ -20,7 +20,7 @@
   # Git checkout template branch
   cd "${abs_project}"
   echo "> git checkout template"
-  git checkout template >/dev/null 2>&1 #|| exit 1
+  git checkout template >/dev/null 2>&1 || exit 1
 
   # Regenerate project
   echo "> regenerate cookiecutter"
