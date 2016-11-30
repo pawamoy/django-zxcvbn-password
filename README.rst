@@ -61,6 +61,11 @@ Installation
 
     pip install django-zxcvbn-password
 
+
+.. WARNING::
+   To use django-zxcvbn-password with Python 3.X, you'll need a Python3.X compatible version
+   of zxcvbn: ``pip uninstall zxcvbn; pip install git+https://github.com/moreati/python-zxcvbn``.
+
 Documentation
 =============
 

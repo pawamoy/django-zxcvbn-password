@@ -56,10 +56,13 @@ setup(
         'Topic :: Utilities',
     ],
     keywords=[
-        'django-zxcvbn-password',
+        'django', 'zxcvbn', 'password',
     ],
     install_requires=[
-        'git+https://github.com/moreati/python-zxcvbn'
+        'zxcvbn'
+    ],
+    dependency_links=[
+        # 'https://github.com/moreati/python-zxcvbn/tarball/master'
     ],
     extras_require={
         # eg:
