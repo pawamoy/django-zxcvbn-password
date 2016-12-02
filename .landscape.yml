@@ -4,7 +4,7 @@ ignore-patterns:
 strictness: veryhigh
 autodetect: true
 doc-warnings: true
-test-warnings: false
+test-warnings: true
 member-warnings: false
 
 # pylint:
