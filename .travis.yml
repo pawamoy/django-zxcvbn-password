@@ -32,6 +32,7 @@ before_install:
   - uname -a
   - lsb_release -a
   - pip install codecov
+  
   - pip install django
 install:
   - pip install tox
@@ -56,3 +57,4 @@ notifications:
     on_failure: always
 after_success:
   - codecov
+  

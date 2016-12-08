@@ -1,5 +1,6 @@
 #!/bin/bash
 rm -rf build
+rm -rf dist
 rm -rf src/*.egg-info
 if tox -e check; then
   python setup.py clean --all sdist bdist_wheel

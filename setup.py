@@ -1,5 +1,13 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
+
+"""
+Setup script.
+
+Uses setuptools.
+Long description is a concatenation of README.rst and CHANGELOG.rst.
+"""
+
 from __future__ import absolute_import, print_function
 
 import io
@@ -11,6 +19,7 @@ from setuptools import find_packages, setup
 
 
 def read(*names, **kwargs):
+    """Read a file in current directory."""
     return io.open(
         join(dirname(__file__), *names),
         encoding=kwargs.get('encoding', 'utf8')
