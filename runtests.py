@@ -1,5 +1,11 @@
 # -*- coding: utf-8 -*-
 
+"""
+Entry point for Django tests.
+
+This script will setup the basic configuration needed by Django.
+"""
+
 import sys
 from os.path import abspath, dirname, join
 
@@ -39,17 +45,18 @@ try:
 except ImportError:
     import traceback
     traceback.print_exc()
-    msg = 'To fix this error, run: pip install -r requirements/test.txt'
-    raise ImportError(msg)
+    raise ImportError('To fix this error, maybe run '
+                      '`pip install -r requirements/test.txt`')
 
 
 def run_tests(*test_args):
+    """Discover and run tests."""
     if not test_args:
         test_args = ['tests']
 
     # Run tests
-    TestRunner = get_runner(settings)
-    test_runner = TestRunner()
+    runner = get_runner(settings)
+    test_runner = runner()
 
     failures = test_runner.run_tests(test_args)
 
