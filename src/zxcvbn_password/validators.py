@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+
+"""Validators for form fields."""
+
 from __future__ import unicode_literals
 
 from django.conf import settings
@@ -23,13 +26,31 @@ PASSWORD_MIN_ENTROPY_MESSAGE = getattr(
 
 
 class LengthValidator(object):
+    """Validate the length of the password."""
+
     code = "length"
 
     def __init__(self, min_length=None, max_length=None):
+        """
+        Init method.
+
+        Args:
+            min_length (int): the minimum length.
+            max_length (int): the maximum length.
+        """
         self.min_length = min_length
         self.max_length = max_length
 
     def __call__(self, value):
+        """
+        Call method.
+
+        Args:
+            value (str): value to validate.
+
+        Raises:
+            ValidationError: when length < min_length or length > max_length.
+        """
         if self.min_length and len(value) < self.min_length:
             raise ValidationError(
                 message=PASSWORD_MIN_LENGTH_MESSAGE % self.min_length,
@@ -41,9 +62,20 @@ class LengthValidator(object):
 
 
 class ZXCVBNValidator(object):
+    """ZXCVBN validator."""
+
     code = "zxcvbn"
 
     def __call__(self, value):
+        """
+        Call method.
+
+        Args:
+            value (str): value to validate.
+
+        Raises:
+            ValidationError: when password entropy < minimum entropy.
+        """
         res = zxcvbn.password_strength(value)
         if res.get('entropy') < PASSWORD_MIN_ENTROPY:
             raise ValidationError(PASSWORD_MIN_ENTROPY_MESSAGE, code=self.code)
