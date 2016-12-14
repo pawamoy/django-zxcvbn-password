@@ -40,8 +40,6 @@ default_context:
     repo_name:                       'django-zxcvbn-password'
     requiresio:                      'no'
     scrutinizer:                     'no'
-    sphinx_doctest:                  'no'
-    sphinx_theme:                    'sphinx-rtd-theme'
     travis:                          'yes'
     version:                         '1.1.0'
     website:                         'http://pawamoy.github.io/'
