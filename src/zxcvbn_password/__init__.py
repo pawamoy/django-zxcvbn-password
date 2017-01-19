@@ -11,5 +11,6 @@ and back-end validation is done via python-zxcvbn.
 from __future__ import unicode_literals
 
 from zxcvbn_password.fields import PasswordConfirmationField, PasswordField
+from zxcvbn_password.validators import clean_user_inputs
 
-__all__ = ['PasswordField', 'PasswordConfirmationField']
+__all__ = ['PasswordField', 'PasswordConfirmationField', 'clean_user_inputs']

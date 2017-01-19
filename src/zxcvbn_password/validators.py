@@ -8,7 +8,7 @@ from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _
 
-import zxcvbn
+from zxcvbn import zxcvbn
 
 # Settings
 PASSWORD_MIN_LENGTH = getattr(settings, "PASSWORD_MIN_LENGTH", 8)
@@ -23,6 +23,10 @@ PASSWORD_MAX_LENGTH_MESSAGE = getattr(
 PASSWORD_MIN_ENTROPY_MESSAGE = getattr(
     settings, "PASSWORD_MIN_ENTROPY_MESSAGE",
     _("Password must be more complex"))
+
+
+def clean_user_inputs(password, user_inputs):
+    return zxcvbn(password, user_inputs)
 
 
 class LengthValidator(object):
@@ -76,8 +80,8 @@ class ZXCVBNValidator(object):
         Raises:
             ValidationError: when password entropy < minimum entropy.
         """
-        res = zxcvbn.password_strength(value)
-        if res.get('entropy') < PASSWORD_MIN_ENTROPY:
+        res = zxcvbn(value)
+        if res['score'] < PASSWORD_MIN_ENTROPY:
             raise ValidationError(PASSWORD_MIN_ENTROPY_MESSAGE, code=self.code)
 
 
