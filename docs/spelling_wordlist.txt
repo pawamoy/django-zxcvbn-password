@@ -20,3 +20,4 @@ zxcvbn
 Password
 Timothee
 Mazzucotelli
+apps
