@@ -73,6 +73,26 @@ Usage
 
 .. code:: python
 
+    # settings.py
+
+    AUTH_PASSWORD_VALIDATORS = [{
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    }, {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    }, {
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    }, {
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    }, {
+        'NAME': 'zxcvbn_password.ZXCVBNValidator',
+        'OPTIONS': {
+            'min_score': 3,
+            'user_attributes': ('username', 'email', 'first_name', 'last_name')
+        }
+    }]
+
+.. code:: python
+
     # forms.py
 
     from django import forms
@@ -88,41 +108,33 @@ Usage
     Remember to include ``{{ form.media }}`` in your template.
     Please refer to the documentation of the two upstream repositories for more information.
 
+
+By default, other inputs won't be used to compute the score, but you can enforce it
+like this:
+
+.. code:: python
+
+    # forms.py
+
+    from zxcvbn_password import zxcbnn
+
+    # in your form class
+    def clean():
+        password = self.cleaned_data.get('password')
+        other_field1 = ...
+        other_field2 = ...
+
+        if password:
+            score = zxcvbn(password, [other_field1, other_field2])['score']
+            # raise forms.ValidationError if needed
+
+        return self.cleaned_data
+
 Screen-shot
 ===========
 
-.. image:: http://img15.hostingpics.net/pics/295712Capturedu20150201153746.png
+.. image:: https://cloud.githubusercontent.com/assets/3999221/23079032/5ae1513a-f54b-11e6-9d66-90660ad5fb2d.png
 
-
-Configuration
-=============
-
-You can configure minimum and maximum length of the password,
-and the minimum entropy (refer to zxcvbn documentation for more details).
-The following values are the default:
-
-.. code:: python
-
-    # settings.py
-
-    PASSWORD_MIN_LENGTH = 8
-    PASSWORD_MAX_LENGTH = 128
-    PASSWORD_MIN_ENTROPY = 25
-
-You can also configure the messages that are displayed when one of these criteria is not respected.
-For minimum and maximum length messages, you may use a ``%s``:
-it will take the value of the minimum / maximum length.
-These options are optional, there already are default messages.
-
-.. code:: python
-
-    # settings.py
-
-    from django.utils.translation import ugettext_lazy as _
-
-    PASSWORD_MIN_LENGTH_MESSAGE = _("Please use at least %s characters!")
-    PASSWORD_MAX_LENGTH_MESSAGE = _("Wow, there are too much now! The maximum is %s.")
-    PASSWORD_MIN_ENTROPY_MESSAGE = _("The complexity of your password is not sufficient...")
 
 Development
 ===========
