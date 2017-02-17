@@ -68,7 +68,7 @@ setup(
         'django', 'zxcvbn', 'password',
     ],
     install_requires=[
-        'zxcvbn'
+        'zxcvbn-python'
     ],
     dependency_links=[
         # 'https://github.com/moreati/python-zxcvbn/tarball/master'

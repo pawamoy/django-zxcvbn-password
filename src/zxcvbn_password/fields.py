@@ -8,18 +8,25 @@ It provides a password field and a password confirmation field.
 
 from __future__ import unicode_literals
 
+from django.contrib.auth.password_validation import validate_password
 from django.forms import CharField
 
-from zxcvbn_password.validators import (
-    length_validator, max_length_validator, zxcvbn_validator)
 from zxcvbn_password.widgets import (
     PasswordConfirmationInput, PasswordStrengthInput)
+
+
+class GlobalValidator(object):
+    """Validator that uses all validators declared in settings."""
+
+    def __call__(self, value):
+        """Call method, run django's validate_password method."""
+        return validate_password(value)
 
 
 class PasswordField(CharField):
     """Password field."""
 
-    default_validators = [length_validator, zxcvbn_validator]
+    default_validators = [GlobalValidator()]
 
     def __init__(self, *args, **kwargs):
         """
@@ -37,8 +44,6 @@ class PasswordField(CharField):
 
 class PasswordConfirmationField(CharField):
     """Password confirmation field."""
-
-    default_validators = [max_length_validator, ]
 
     def __init__(self, *args, **kwargs):
         """

@@ -3,7 +3,6 @@
 """Main test script."""
 
 
-
 from django.test import TestCase
 
 import zxcvbn_password

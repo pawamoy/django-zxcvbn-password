@@ -1,25 +1,4 @@
 $(function($) {
-    var display_time = function(seconds) {
-        var minute = 60;
-        var hour = minute * 60;
-        var day = hour * 24;
-        var month = day * 31;
-        var year = month * 12;
-        var century = year * 100;
-
-        // Provide fake gettext for when it is not available
-        if( typeof gettext !== 'function' ) { gettext = function(text) { return text; }; };
-
-        if( seconds < minute ) return gettext('only an instant');
-        if( seconds < hour) return (1 + Math.ceil(seconds / minute)) + ' ' + gettext('minutes');
-        if( seconds < day) return (1 + Math.ceil(seconds / hour)) + ' ' + gettext('hours');
-        if( seconds < month) return (1 + Math.ceil(seconds / day)) + ' ' + gettext('days');
-        if( seconds < year) return (1 + Math.ceil(seconds / month)) + ' ' + gettext('months');
-        if( seconds < century) return (1 + Math.ceil(seconds / year)) + ' ' + gettext('years');
-
-        return 'centuries'
-    };
-
     var match_passwords = function(password_field, confirmation_fields) {
         // Optional parameter: if no specific confirmation field is given, check all
         if( confirmation_fields === undefined ) { confirmation_fields = $('.password_confirmation') }
@@ -58,13 +37,13 @@ $(function($) {
         var password_strength_info = $(this).parent().find('.password_strength_info');
 
         if( $(this).val() ) {
-            var result = zxcvbn( $(this).val() );
-            var crack_time = result.crack_time_display;
+            var result = zxcvbn($(this).val());
+            var crack_time = result.crack_times_display.online_no_throttling_10_per_second;
 
-            if( result.score < 1 ) {
+            if (result.score < 1) {
                 password_strength_bar.removeClass('progress-bar-success').addClass('progress-bar-danger');
                 password_strength_info.find('.label').removeClass('hidden');
-            } else if( result.score < 3 ) {
+            } else if (result.score < 3) {
                 password_strength_bar.removeClass('progress-bar-danger').addClass('progress-bar-warning');
                 password_strength_info.find('.label').removeClass('hidden');
             } else {
@@ -73,7 +52,7 @@ $(function($) {
             }
 
             password_strength_bar.width( ((result.score+1)/5)*100 + '%' ).attr('aria-valuenow', result.score + 1);
-            password_strength_info.find('.password_strength_time').html(display_time(result.crack_time));
+            password_strength_info.find('.password_strength_time').html(crack_time);
             password_strength_info.removeClass('hidden');
         } else {
             password_strength_bar.removeClass('progress-bar-success').addClass('progress-bar-warning');

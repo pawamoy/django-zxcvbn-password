@@ -3,7 +3,6 @@
 """Widgets for form fields."""
 
 from __future__ import unicode_literals
-from builtins import object
 from django.forms import PasswordInput
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext as _
@@ -23,7 +22,7 @@ class PasswordStrengthInput(PasswordInput):
                      role="progressbar"
                      aria-valuenow="0"
                      aria-valuemin="0"
-                     aria-valuemax="5"
+                     aria-valuemax="4"
                      style="width: 0%%">
                 </div>
             </div>
@@ -41,8 +40,7 @@ class PasswordStrengthInput(PasswordInput):
                                '</em> to crack.'))
 
         try:
-            self.attrs['class'] = '%s password_strength'.strip()\
-                                  % self.attrs['class']
+            self.attrs['class'] = '%s password_strength'.strip() % self.attrs['class']  # noqa
         except KeyError:
             self.attrs['class'] = 'password_strength'
 
@@ -83,8 +81,7 @@ class PasswordConfirmationInput(PasswordInput):
         """ % (_('Warning'), _("Your passwords don't match."))
 
         try:
-            self.attrs['class'] = '%s password_confirmation'.strip()\
-                                  % self.attrs['class']
+            self.attrs['class'] = '%s password_confirmation'.strip() % self.attrs['class']  # noqa
         except KeyError:
             self.attrs['class'] = 'password_confirmation'
 

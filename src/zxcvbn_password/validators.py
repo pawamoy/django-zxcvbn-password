@@ -4,83 +4,47 @@
 
 from __future__ import unicode_literals
 
-from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _
 
-import zxcvbn
-
-# Settings
-PASSWORD_MIN_LENGTH = getattr(settings, "PASSWORD_MIN_LENGTH", 8)
-PASSWORD_MAX_LENGTH = getattr(settings, "PASSWORD_MAX_LENGTH", 128)
-PASSWORD_MIN_ENTROPY = getattr(settings, "ZXCVBN_MIN_ENTROPY", 25)
-PASSWORD_MIN_LENGTH_MESSAGE = getattr(
-    settings, "PASSWORD_MIN_LENGTH_MESSAGE",
-    _("Password must be %s characters or more."))
-PASSWORD_MAX_LENGTH_MESSAGE = getattr(
-    settings, "PASSWORD_MAX_LENGTH_MESSAGE",
-    _("Password must be %s characters or less."))
-PASSWORD_MIN_ENTROPY_MESSAGE = getattr(
-    settings, "PASSWORD_MIN_ENTROPY_MESSAGE",
-    _("Password must be more complex"))
-
-
-class LengthValidator(object):
-    """Validate the length of the password."""
-
-    code = "length"
-
-    def __init__(self, min_length=None, max_length=None):
-        """
-        Init method.
-
-        Args:
-            min_length (int): the minimum length.
-            max_length (int): the maximum length.
-        """
-        self.min_length = min_length
-        self.max_length = max_length
-
-    def __call__(self, value):
-        """
-        Call method.
-
-        Args:
-            value (str): value to validate.
-
-        Raises:
-            ValidationError: when length < min_length or length > max_length.
-        """
-        if self.min_length and len(value) < self.min_length:
-            raise ValidationError(
-                message=PASSWORD_MIN_LENGTH_MESSAGE % self.min_length,
-                code=self.code)
-        elif self.max_length and len(value) > self.max_length:
-            raise ValidationError(
-                message=PASSWORD_MAX_LENGTH_MESSAGE % self.max_length,
-                code=self.code)
+from zxcvbn import zxcvbn
 
 
 class ZXCVBNValidator(object):
     """ZXCVBN validator."""
 
-    code = "zxcvbn"
+    code = 'password_too_weak'
+    DEFAULT_USER_ATTRIBUTES = ('username', 'first_name', 'last_name', 'email')
 
-    def __call__(self, value):
+    def __init__(self, min_score=3, user_attributes=DEFAULT_USER_ATTRIBUTES):
         """
-        Call method.
+        Init method.
 
         Args:
-            value (str): value to validate.
-
-        Raises:
-            ValidationError: when password entropy < minimum entropy.
+            min_score (int): minimum score to accept (between 0 and 4).
+            user_attributes (tuple): list of user attributes to check.
         """
-        res = zxcvbn.password_strength(value)
-        if res.get('entropy') < PASSWORD_MIN_ENTROPY:
-            raise ValidationError(PASSWORD_MIN_ENTROPY_MESSAGE, code=self.code)
+        self.min_score = min_score
+        self.user_attributes = user_attributes
 
+    def __call__(self, value):
+        """Call method, run self.validate (can be used in form fields)."""
+        return self.validate(value)
 
-length_validator = LengthValidator(PASSWORD_MIN_LENGTH, PASSWORD_MAX_LENGTH)
-max_length_validator = LengthValidator(max_length=PASSWORD_MAX_LENGTH)
-zxcvbn_validator = ZXCVBNValidator()
+    def validate(self, password, user=None):
+        """Validate method, run zxcvbn and check score."""
+        user_inputs = []
+        if user is not None:
+            for attribute in self.user_attributes:
+                if hasattr(user, attribute):
+                    user_inputs.append(getattr(user, attribute))
+
+        results = zxcvbn(password, user_inputs=user_inputs)
+        if results.get('score', 0) < self.min_score:
+            feedback = ', '.join(
+                results.get('feedback', {}).get('suggestions', []))
+            raise ValidationError(_(feedback), code=self.code, params={})
+
+    def get_help_text(self):
+        """Help text to print when ValidationError."""
+        return _("Your password must be stronger.")

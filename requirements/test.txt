@@ -6,5 +6,3 @@ pytest-travis-fold
 pytest-cov
 pytest-django
 future
-
-git+https://github.com/moreati/python-zxcvbn
