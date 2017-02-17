@@ -12,6 +12,8 @@ Changelog
 * Remove all settings (they now go in AUTH_PASSWORD_VALIDATOR options).
 * Change license to ISC.
 
+Thanks to Nick Stefan and Daniel Wolf.
+
 1.1.0 (2016-10-18)
 ==================
 
