@@ -19,11 +19,11 @@ Django ZXCVBN Password
     :target: https://travis-ci.org/Pawamoy/django-zxcvbn-password/
 
 .. |codacy| image:: https://api.codacy.com/project/badge/Grade/REPLACE_WITH_PROJECT_ID
-    :target: https://www.codacy.com/app/Pawamoy/django-zxcvbn-password/
+    :target: https://www.codacy.com/app/Pawamoy/django-zxcvbn-password/dashboard
     :alt: Codacy Code Quality Status
 
-.. |pyup| image:: https://pyup.io/account/repos/github/pawamoy/django-zxcvbn-password/shield.svg
-    :target: https://pyup.io/account/repos/github/pawamoy/django-zxcvbn-password/
+.. |pyup| image:: https://pyup.io/repos/github/Pawamoy/django-zxcvbn-password/shield.svg
+    :target: https://pyup.io/repos/github/Pawamoy/django-zxcvbn-password/
     :alt: Updates
 
 .. |gitter| image:: https://badges.gitter.im/Pawamoy/django-zxcvbn-password.svg
