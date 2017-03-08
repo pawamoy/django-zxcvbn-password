@@ -9,28 +9,28 @@ matrix:
   - {python: '3.5', env: TOX_ENV=check}
   - {python: '3.5', env: TOX_ENV=docs}
   - {python: '3.5', env: TOX_ENV=linkcheck}
-  - {python: '2.7', env: 'TOX_ENV=py27-django18,codecov'}
-  - {python: '2.7', env: 'TOX_ENV=py27-django19,codecov'}
-  - {python: '2.7', env: 'TOX_ENV=py27-django110,codecov'}
-  - {python: '3.4', env: 'TOX_ENV=py34-django18,codecov'}
-  - {python: '3.4', env: 'TOX_ENV=py34-django19,codecov'}
-  - {python: '3.4', env: 'TOX_ENV=py34-django110,codecov'}
-  - {python: '3.5', env: 'TOX_ENV=py35-django18,codecov'}
-  - {python: '3.5', env: 'TOX_ENV=py35-django19,codecov'}
-  - {python: '3.5', env: 'TOX_ENV=py35-django110,codecov'}
-  - {python: '3.6', env: 'TOX_ENV=py36-django18,codecov'}
-  - {python: '3.6', env: 'TOX_ENV=py36-django19,codecov'}
-  - {python: '3.6', env: 'TOX_ENV=py36-django110,codecov'}
-  - {python: 3.7-dev, env: 'TOX_ENV=py37-dev-django18,codecov'}
-  - {python: 3.7-dev, env: 'TOX_ENV=py37-dev-django19,codecov'}
-  - {python: 3.7-dev, env: 'TOX_ENV=py37-dev-django110,codecov'}
-  - {python: pypy, env: 'TOX_ENV=pypy-django18,codecov'}
-  - {python: pypy, env: 'TOX_ENV=pypy-django19,codecov'}
-  - {python: pypy, env: 'TOX_ENV=pypy-django110,codecov'}
+  - {python: '2.7', env: 'TOX_ENV=py27-django18,codacy'}
+  - {python: '2.7', env: 'TOX_ENV=py27-django19,codacy'}
+  - {python: '2.7', env: 'TOX_ENV=py27-django110,codacy'}
+  - {python: '3.4', env: 'TOX_ENV=py34-django18,codacy'}
+  - {python: '3.4', env: 'TOX_ENV=py34-django19,codacy'}
+  - {python: '3.4', env: 'TOX_ENV=py34-django110,codacy'}
+  - {python: '3.5', env: 'TOX_ENV=py35-django18,codacy'}
+  - {python: '3.5', env: 'TOX_ENV=py35-django19,codacy'}
+  - {python: '3.5', env: 'TOX_ENV=py35-django110,codacy'}
+  - {python: '3.6', env: 'TOX_ENV=py36-django18,codacy'}
+  - {python: '3.6', env: 'TOX_ENV=py36-django19,codacy'}
+  - {python: '3.6', env: 'TOX_ENV=py36-django110,codacy'}
+  - {python: 3.7-dev, env: 'TOX_ENV=py37-dev-django18,codacy'}
+  - {python: 3.7-dev, env: 'TOX_ENV=py37-dev-django19,codacy'}
+  - {python: 3.7-dev, env: 'TOX_ENV=py37-dev-django110,codacy'}
+  - {python: pypy, env: 'TOX_ENV=pypy-django18,codacy'}
+  - {python: pypy, env: 'TOX_ENV=pypy-django19,codacy'}
+  - {python: pypy, env: 'TOX_ENV=pypy-django110,codacy'}
   fast_finish: true
   allow_failures:
   - {python: '3.5', env: TOX_ENV=linkcheck}
   - {python: 3.7-dev}
 install: [pip install -r requirements/ci.txt]
 script: ['tox -e ${TOX_ENV}']
-after_success: [tox -e codecov]
+after_success: [tox -e codacy]
