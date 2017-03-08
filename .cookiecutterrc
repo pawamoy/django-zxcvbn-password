@@ -17,9 +17,9 @@
 default_context:
 
     appveyor:                        'no'
-    codacy:                          'no'
+    codacy:                          'yes'
     codeclimate:                     'no'
-    codecov:                         'yes'
+    codecov:                         'no'
     command_line_interface:          'no'
     command_line_interface_bin_name: 'django-zxcvbn-password'
     coveralls:                       'no'
