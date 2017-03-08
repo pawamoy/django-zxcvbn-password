@@ -17,8 +17,8 @@ Django ZXCVBN Password
     :alt: Travis-CI Build Status
     :target: https://travis-ci.org/Pawamoy/django-zxcvbn-password/
 
-.. |codacy| image:: https://api.codacy.com/project/badge/Grade/REPLACE_WITH_PROJECT_ID
-    :target: https://www.codacy.com/app/Pawamoy/django-zxcvbn-password/
+.. |codacy| image:: https://api.codacy.com/project/badge/Grade/7f25070e9c46453c8ed054f00aa113b6
+    :target: https://www.codacy.com/app/Pawamoy/django-zxcvbn-password/dashboard
     :alt: Codacy Code Quality Status
 
 .. |pyup| image:: https://pyup.io/account/repos/github/pawamoy/django-zxcvbn-password/shield.svg
