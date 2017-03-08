@@ -1,0 +1,8 @@
+schedule: "every two weeks"
+search: False
+requirements:
+  - requirements/base.txt
+  - requirements/local.txt
+  - requirements/ci.txt
+  - requirements/test.txt
+  - docs/requirements.txt

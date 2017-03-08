@@ -1,62 +1,36 @@
-language: python
-python: '3.5'
 sudo: false
-env:
-  - TOXENV=check
-
-
-  - TOXENV=py27-django-18,codecov
-  - TOXENV=py27-django-19,codecov
-  - TOXENV=py27-django-110,codecov
-
-
-  - TOXENV=py34-django-18,codecov
-  - TOXENV=py34-django-19,codecov
-  - TOXENV=py34-django-110,codecov
-
-
-  - TOXENV=py35-django-18,codecov
-  - TOXENV=py35-django-19,codecov
-  - TOXENV=py35-django-110,codecov
-
-
-  - TOXENV=pypy-django-18,codecov
-  - TOXENV=pypy-django-19,codecov
-  - TOXENV=pypy-django-110,codecov
-
-matrix:
-  fast_finish: true
-before_install:
-  - python --version
-  - uname -a
-  - lsb_release -a
-  - pip install codecov
-  
-  - pip install django
-install:
-  - pip install tox
-  - pip install -r requirements/ci.txt
-  - virtualenv --version
-  - easy_install --version
-  - pip --version
-  - tox --version
+language: python
 branches:
-  only:
-    - master
-script:
-  - tox -v
-after_failure:
-  - more .tox/log/* | cat
-  - more .tox/*/log/* | cat
-before_cache:
-  - rm -rf $HOME/.cache/pip/log
+  only: [master]
 cache:
-  directories:
-    - $HOME/.cache/pip
-notifications:
-  email:
-    on_success: never
-    on_failure: always
-after_success:
-  - codecov
-  
+  directories: [$HOME/.cache/pip]
+matrix:
+  include:
+  - {python: '3.5', env: TOX_ENV=check}
+  - {python: '3.5', env: TOX_ENV=docs}
+  - {python: '3.5', env: TOX_ENV=linkcheck}
+  - {python: '2.7', env: 'TOX_ENV=py27-django18,codecov'}
+  - {python: '2.7', env: 'TOX_ENV=py27-django19,codecov'}
+  - {python: '2.7', env: 'TOX_ENV=py27-django110,codecov'}
+  - {python: '3.4', env: 'TOX_ENV=py34-django18,codecov'}
+  - {python: '3.4', env: 'TOX_ENV=py34-django19,codecov'}
+  - {python: '3.4', env: 'TOX_ENV=py34-django110,codecov'}
+  - {python: '3.5', env: 'TOX_ENV=py35-django18,codecov'}
+  - {python: '3.5', env: 'TOX_ENV=py35-django19,codecov'}
+  - {python: '3.5', env: 'TOX_ENV=py35-django110,codecov'}
+  - {python: '3.6', env: 'TOX_ENV=py36-django18,codecov'}
+  - {python: '3.6', env: 'TOX_ENV=py36-django19,codecov'}
+  - {python: '3.6', env: 'TOX_ENV=py36-django110,codecov'}
+  - {python: 3.7-dev, env: 'TOX_ENV=py37-dev-django18,codecov'}
+  - {python: 3.7-dev, env: 'TOX_ENV=py37-dev-django19,codecov'}
+  - {python: 3.7-dev, env: 'TOX_ENV=py37-dev-django110,codecov'}
+  - {python: pypy, env: 'TOX_ENV=pypy-django18,codecov'}
+  - {python: pypy, env: 'TOX_ENV=pypy-django19,codecov'}
+  - {python: pypy, env: 'TOX_ENV=pypy-django110,codecov'}
+  fast_finish: true
+  allow_failures:
+  - {python: '3.5', env: TOX_ENV=linkcheck}
+  - {python: 3.7-dev}
+install: [pip install -r requirements/ci.txt]
+script: ['tox -e ${TOX_ENV}']
+after_success: [tox -e codecov]

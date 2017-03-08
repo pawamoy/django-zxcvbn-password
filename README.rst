@@ -27,7 +27,6 @@ Django ZXCVBN Password
     :target: https://landscape.io/github/Pawamoy/django-zxcvbn-password/
     :alt: Code Quality Status
 
-
 .. |pyup| image:: https://pyup.io/repos/github/pawamoy/django-zxcvbn-password/shield.svg
     :target: https://pyup.io/repos/github/pawamoy/django-zxcvbn-password/
     :alt: Updates
@@ -66,7 +65,8 @@ Installation
 Documentation
 =============
 
-https://github.com/Pawamoy/django-zxcvbn-password/wiki
+http://django-zxcvbn-password.readthedocs.io/en/latest/
+
 
 Development
 ===========
