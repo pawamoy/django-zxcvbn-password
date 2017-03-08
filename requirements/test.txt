@@ -4,4 +4,4 @@ pytest
 pytest-travis-fold
 pytest-cov
 pytest-django
-future
+future==0.16.0
