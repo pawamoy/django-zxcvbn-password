@@ -1,6 +1,6 @@
 -r base.txt
 
-pytest
+pytest==3.0.6
 pytest-travis-fold==1.2.0
 pytest-cov
 pytest-django
