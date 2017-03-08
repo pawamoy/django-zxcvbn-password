@@ -2,6 +2,6 @@
 
 pytest
 pytest-travis-fold
-pytest-cov
+pytest-cov==2.4.0
 pytest-django
 future
