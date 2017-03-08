@@ -31,7 +31,7 @@ default_context:
     full_name:                       'Timothee Mazzucotelli'
     github_username:                 'Pawamoy'
     gitter:                          'yes'
-    landscape:                       'yes'
+    landscape:                       'no'
     package_name:                    'zxcvbn_password'
     project_name:                    'Django ZXCVBN Password'
     project_short_description:       'Back-end and Front-end password validation with ZXCVBN.'
