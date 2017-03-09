@@ -29,11 +29,11 @@ matrix:
   - {python: pypy, env: 'TOX_ENV=pypy-django110,codacy'}
   fast_finish: true
   allow_failures:
-  - env: TOX_ENV=py27-django-18,codacy
-  - env: TOX_ENV=py34-django-18,codacy
-  - env: TOX_ENV=py35-django-18,codacy
-  - env: TOX_ENV=py36-django-18,codacy
-  - env: TOX_ENV=pypy-django-18,codacy
+  - env: 'TOX_ENV=py27-django18,codacy'
+  - env: 'TOX_ENV=py34-django18,codacy'
+  - env: 'TOX_ENV=py35-django18,codacy'
+  - env: 'TOX_ENV=py36-django18,codacy'
+  - env: 'TOX_ENV=pypy-django18,codacy'
   - python: '3.5'
     env: TOX_ENV=linkcheck
   - python: 3.7-dev
