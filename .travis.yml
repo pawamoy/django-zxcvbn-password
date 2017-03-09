@@ -1,4 +1,4 @@
-sudo: false
+sudo: true
 language: python
 branches:
   only: [master]
@@ -31,5 +31,8 @@ matrix:
   allow_failures:
   - {python: '3.5', env: TOX_ENV=linkcheck}
   - {python: 3.7-dev}
+addons:
+  apt:
+    packages: [libenchant-dev]
 install: [pip install -r requirements/ci.txt]
 script: ['tox -e ${TOX_ENV}']
