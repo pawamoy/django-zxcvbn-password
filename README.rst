@@ -6,7 +6,8 @@ Django ZXCVBN Password
 
 
 |travis|
-|codacy|
+|codacygrade|
+|codacycoverage|
 |version|
 |wheel|
 |pyup|
@@ -14,28 +15,32 @@ Django ZXCVBN Password
 
 
 .. |travis| image:: https://travis-ci.org/Pawamoy/django-zxcvbn-password.svg?branch=master
-    :alt: Travis-CI Build Status
     :target: https://travis-ci.org/Pawamoy/django-zxcvbn-password/
+    :alt: Travis-CI Build Status
 
-.. |codacy| image:: https://api.codacy.com/project/badge/Grade/7f25070e9c46453c8ed054f00aa113b6
+.. |codacygrade| image:: https://api.codacy.com/project/badge/Grade/7f25070e9c46453c8ed054f00aa113b6
     :target: https://www.codacy.com/app/Pawamoy/django-zxcvbn-password/dashboard
     :alt: Codacy Code Quality Status
+
+.. |codacycoverage| image:: https://api.codacy.com/project/badge/Coverage/7f25070e9c46453c8ed054f00aa113b6
+    :target: https://www.codacy.com/app/Pawamoy/django-zxcvbn-password/dashboard
+    :alt: Codacy Code Coverage
 
 .. |pyup| image:: https://pyup.io/repos/github/Pawamoy/django-zxcvbn-password/shield.svg
     :target: https://pyup.io/repos/github/Pawamoy/django-zxcvbn-password/
     :alt: Updates
 
 .. |gitter| image:: https://badges.gitter.im/Pawamoy/django-zxcvbn-password.svg
+    :target: https://gitter.im/Pawamoy/django-zxcvbn-password
     :alt: Join the chat at https://gitter.im/Pawamoy/django-zxcvbn-password
-    :target: https://gitter.im/Pawamoy/django-zxcvbn-password?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
 
 .. |version| image:: https://img.shields.io/pypi/v/django-zxcvbn-password.svg?style=flat
-    :alt: PyPI Package latest release
     :target: https://pypi.python.org/pypi/django-zxcvbn-password/
+    :alt: PyPI Package latest release
 
 .. |wheel| image:: https://img.shields.io/pypi/wheel/django-zxcvbn-password.svg?style=flat
-    :alt: PyPI Wheel
     :target: https://pypi.python.org/pypi/django-zxcvbn-password/
+    :alt: PyPI Wheel
 
 
 .. end-badges
