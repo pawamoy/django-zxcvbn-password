@@ -2,6 +2,11 @@
 Changelog
 =========
 
+2.0.1 (2017-02-17)
+==================
+
+* Fix call to super in PasswordStrengthInput.
+
 2.0.0 (2017-02-17)
 ==================
 

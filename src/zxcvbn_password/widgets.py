@@ -44,7 +44,7 @@ class PasswordStrengthInput(PasswordInput):
         except KeyError:
             self.attrs['class'] = 'password_strength'
 
-        return mark_safe(super(PasswordInput, self).render(
+        return mark_safe(super(PasswordStrengthInput, self).render(
             name, value, attrs) + strength_markup)
 
     class Media(object):
