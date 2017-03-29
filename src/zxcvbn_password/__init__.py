@@ -16,4 +16,4 @@ from zxcvbn_password.validators import ZXCVBNValidator, zxcvbn
 __all__ = ['PasswordField', 'PasswordConfirmationField',
            'ZXCVBNValidator', 'zxcvbn']
 
-__version__ = '2.0.0'
+__version__ = '2.0.1'
