@@ -85,5 +85,5 @@ class PasswordConfirmationInput(PasswordInput):
         except KeyError:
             self.attrs['class'] = 'password_confirmation'
 
-        return mark_safe(super(PasswordInput, self).render(
+        return mark_safe(super(PasswordConfirmationInput, self).render(
             name, value, attrs) + confirmation_markup)
