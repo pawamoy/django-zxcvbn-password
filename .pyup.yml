@@ -6,3 +6,4 @@ requirements:
   - requirements/ci.txt
   - requirements/test.txt
   - docs/requirements.txt
+assignees: Pawamoy

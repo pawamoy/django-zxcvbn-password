@@ -1,7 +1,7 @@
 #!/bin/bash
 { # Force shell to read entire script before executing it, thanks to compound command
   if [ $# -lt 2 ]; then
-    echo "usage: ./update.sh PROJECT_PATH TEMPLATE_PATH [COMMIT_MESSAGE]" >&2
+    echo "usage: ./update.sh PROJECT_PATH COOKIECUTTER_PATH [COMMIT_MESSAGE]" >&2
     exit 1
   fi
 
@@ -12,9 +12,9 @@
   abs_project="$(cd "${project}"; pwd)"
   abs_cookiecutter="$(cd "${cookiecutter}"; pwd)"
 
-  echo "Absolute path to project:  ${abs_project}"
+  echo "Absolute path to project:      ${abs_project}"
   echo "Absolute path to cookiecutter: ${abs_cookiecutter}"
-  echo "Commit message:            ${message}"
+  echo "Commit message:                ${message}"
   echo
 
   # Git checkout cookiecutter branch
@@ -36,7 +36,7 @@
   echo "> git status -sb"
   git status -sb | tail -n+2
   echo
-  echo "> git add, commit and push"
+  echo "> git add and commit"
   git add . -A
   if git commit -m "${message}"; then
     echo

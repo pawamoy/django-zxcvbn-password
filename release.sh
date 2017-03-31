@@ -2,7 +2,8 @@
 rm -rf build
 rm -rf dist
 rm -rf src/*.egg-info
-if tox -e check; then
+if tox -e checksetup,checksafety,checkstyle,checkspell; then
+  rm -rf dist/docs
   python setup.py clean --all sdist bdist_wheel
   success=true
   for d in dist/*; do

@@ -14,8 +14,10 @@ django-zxcvbn-password
 django-zxcvbn-password
 zxcvbn_password
 Pawamoy
-Django
-ZXCVBN
-Password
+django
+zxcvbn
+password
 Timothee
 Mazzucotelli
+Django
+django

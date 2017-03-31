@@ -18,6 +18,7 @@ try:
         USE_TZ=True,
         DATABASES={
             'default': {
+                'NAME': 'default',
                 'ENGINE': 'django.db.backends.sqlite3',
             }
         },

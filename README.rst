@@ -7,8 +7,8 @@ Django ZXCVBN Password
 
 
 |travis|
-|codacy-grade|
-|codacy-coverage|
+|codacygrade|
+|codacycoverage|
 |version|
 |wheel|
 |pyup|
@@ -19,20 +19,17 @@ Django ZXCVBN Password
     :target: https://travis-ci.org/Pawamoy/django-zxcvbn-password/
     :alt: Travis-CI Build Status
 
-.. |codacy-grade| image:: https://api.codacy.com/project/badge/Grade/REPLACE_WITH_PROJECT_ID
+.. |codacygrade| image:: https://api.codacy.com/project/badge/Grade/REPLACE_WITH_PROJECT_ID
     :target: https://www.codacy.com/app/Pawamoy/django-zxcvbn-password/dashboard
     :alt: Codacy Code Quality Status
-.. |codacy-coverage| image:: https://api.codacy.com/project/badge/Coverage/338f6c7d06664cae86d66eb289a5e424
+
+.. |codacycoverage| image:: https://api.codacy.com/project/badge/Coverage/REPLACE_WITH_PROJECT_ID
     :target: https://www.codacy.com/app/Pawamoy/django-zxcvbn-password/dashboard
     :alt: Codacy Code Coverage
 
 .. |pyup| image:: https://pyup.io/repos/github/Pawamoy/django-zxcvbn-password/shield.svg
     :target: https://pyup.io/repos/github/Pawamoy/django-zxcvbn-password/
     :alt: Updates
-
-.. |gitter| image:: https://badges.gitter.im/Pawamoy/django-zxcvbn-password.svg
-    :target: https://gitter.im/Pawamoy/django-zxcvbn-password
-    :alt: Join the chat at https://gitter.im/Pawamoy/django-zxcvbn-password
 
 .. |version| image:: https://img.shields.io/pypi/v/django-zxcvbn-password.svg?style=flat
     :target: https://pypi.python.org/pypi/django-zxcvbn-password/
@@ -41,6 +38,11 @@ Django ZXCVBN Password
 .. |wheel| image:: https://img.shields.io/pypi/wheel/django-zxcvbn-password.svg?style=flat
     :target: https://pypi.python.org/pypi/django-zxcvbn-password/
     :alt: PyPI Wheel
+
+.. |gitter| image:: https://badges.gitter.im/Pawamoy/django-zxcvbn-password.svg
+    :target: https://gitter.im/Pawamoy/django-zxcvbn-password
+    :alt: Join the chat at https://gitter.im/Pawamoy/django-zxcvbn-password
+
 
 
 .. end-badges
@@ -64,8 +66,9 @@ Installation
 Documentation
 =============
 
-http://django-zxcvbn-password.readthedocs.io/en/latest/
+`On ReadTheDocs`_
 
+.. _`On ReadTheDocs`: http://django-zxcvbn-password.readthedocs.io/
 
 Development
 ===========
