@@ -30,10 +30,6 @@ Django ZXCVBN Password
     :target: https://pyup.io/repos/github/Pawamoy/django-zxcvbn-password/
     :alt: Updates
 
-.. |gitter| image:: https://badges.gitter.im/Pawamoy/django-zxcvbn-password.svg
-    :target: https://gitter.im/Pawamoy/django-zxcvbn-password
-    :alt: Join the chat at https://gitter.im/Pawamoy/django-zxcvbn-password
-
 .. |version| image:: https://img.shields.io/pypi/v/django-zxcvbn-password.svg?style=flat
     :target: https://pypi.python.org/pypi/django-zxcvbn-password/
     :alt: PyPI Package latest release
@@ -41,6 +37,11 @@ Django ZXCVBN Password
 .. |wheel| image:: https://img.shields.io/pypi/wheel/django-zxcvbn-password.svg?style=flat
     :target: https://pypi.python.org/pypi/django-zxcvbn-password/
     :alt: PyPI Wheel
+
+.. |gitter| image:: https://badges.gitter.im/Pawamoy/django-zxcvbn-password.svg
+    :target: https://gitter.im/Pawamoy/django-zxcvbn-password
+    :alt: Join the chat at https://gitter.im/Pawamoy/django-zxcvbn-password
+
 
 
 .. end-badges
@@ -135,6 +136,12 @@ Screen-shot
 
 .. image:: https://cloud.githubusercontent.com/assets/3999221/23079032/5ae1513a-f54b-11e6-9d66-90660ad5fb2d.png
 
+Documentation
+=============
+
+`On ReadTheDocs`_
+
+.. _`On ReadTheDocs`: http://django-zxcvbn-password.readthedocs.io/
 
 Development
 ===========

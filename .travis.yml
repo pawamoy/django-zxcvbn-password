@@ -6,9 +6,12 @@ cache:
   directories: [$HOME/.cache/pip]
 matrix:
   include:
-  - {python: '3.5', env: TOX_ENV=check}
   - {python: '3.5', env: TOX_ENV=docs}
-  - {python: '3.5', env: TOX_ENV=linkcheck}
+  - {python: '3.5', env: TOX_ENV=checksetup}
+  - {python: '3.5', env: TOX_ENV=checksafety}
+  - {python: '3.5', env: TOX_ENV=checkstyle}
+  - {python: '3.5', env: TOX_ENV=checkspell}
+  - {python: '3.5', env: TOX_ENV=checklink}
   - {python: '2.7', env: 'TOX_ENV=py27-django18,codacy'}
   - {python: '2.7', env: 'TOX_ENV=py27-django19,codacy'}
   - {python: '2.7', env: 'TOX_ENV=py27-django110,codacy'}
@@ -34,9 +37,8 @@ matrix:
   - env: 'TOX_ENV=py35-django18,codacy'
   - env: 'TOX_ENV=py36-django18,codacy'
   - env: 'TOX_ENV=pypy-django18,codacy'
-  - python: '3.5'
-    env: TOX_ENV=linkcheck
-  - python: 3.7-dev
+  - {python: '3.5', env: TOX_ENV=checklink}
+  - {python: 3.7-dev}
 addons:
   apt:
     packages: [libenchant-dev]

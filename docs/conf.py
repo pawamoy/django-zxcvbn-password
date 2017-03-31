@@ -6,6 +6,21 @@ from __future__ import unicode_literals
 
 import os
 
+import sys
+import django
+from django.conf import settings
+
+sys.path.insert(0, os.path.join(os.path.abspath('..'), 'src'))
+settings.configure(
+    INSTALLED_APPS=[
+        'django.contrib.auth',
+        'django.contrib.contenttypes',
+        'django.contrib.sites',
+    ],
+    SITE_ID=1
+)
+django.setup()
+
 
 extensions = [
     'sphinx.ext.autodoc',

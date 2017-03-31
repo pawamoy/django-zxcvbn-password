@@ -25,3 +25,4 @@ dwolfhub
 javascript
 rst
 Cookiecutterize
+password
