@@ -45,6 +45,7 @@ class ZXCVBNValidator(object):
                 results.get('feedback', {}).get('suggestions', []))
             raise ValidationError(_(feedback), code=self.code, params={})
 
+    # pylama:ignore=R0201
     def get_help_text(self):
         """Help text to print when ValidationError."""
         return _("Your password must be stronger.")

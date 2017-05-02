@@ -1,14 +1,9 @@
-graft examples
 graft src
-graft ci
 graft tests
 graft docs
 
-include .bumpversion.cfg
-include .coveragerc
 include .cookiecutterrc
 include .editorconfig
-include .isort.cfg
 
 include AUTHORS.rst
 include CHANGELOG.rst
@@ -17,11 +12,11 @@ include LICENSE
 include README.rst
 
 include tox.ini
-include .style.yapf
 
 include *.yml
 include runtests.py
 
 recursive-include requirements *.txt
+recursive-include scripts *.sh
 
-global-exclude *.py[cod] __pycache__ *.so *.dylib release.sh update.sh
+global-exclude *.py[cod] __pycache__ *.so *.dylib

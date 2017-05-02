@@ -2,8 +2,15 @@
 rm -rf build
 rm -rf dist
 rm -rf src/*.egg-info
-if tox -e checksetup,checksafety,checkstyle,checkspell; then
-  rm -rf dist/docs
+
+read -rp "Are you sure tox is ok? [yN]: " tox_ok
+
+proceed=0
+case $tox_ok in
+  y|Y|yes) proceed=1 ;;
+esac
+
+if [ ${proceed} -eq 1 ]; then
   python setup.py clean --all sdist bdist_wheel
   success=true
   for d in dist/*; do
@@ -20,5 +27,5 @@ if tox -e checksetup,checksafety,checkstyle,checkspell; then
         fi; else echo "Twine register to PyPi failed" >&2
       fi; else echo "Twine upload to PyPiTest failed" >&2
     fi; else echo "Twine register to PyPiTest failed" >&2
-  fi; else echo "Tox check failed" >&2
+  fi; else echo "Then make tox happy." >&2
 fi

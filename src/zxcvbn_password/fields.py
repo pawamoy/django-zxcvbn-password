@@ -55,7 +55,7 @@ class PasswordConfirmationField(CharField):
                 confirm_with keyword argument to point to the password field.
         """
         if "widget" not in kwargs:
-                kwargs["widget"] = PasswordConfirmationInput(
-                    confirm_with=kwargs.pop('confirm_with', None))
+            kwargs["widget"] = PasswordConfirmationInput(
+                confirm_with=kwargs.pop('confirm_with', None))
 
         super(PasswordConfirmationField, self).__init__(*args, **kwargs)
