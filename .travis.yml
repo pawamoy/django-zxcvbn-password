@@ -37,6 +37,8 @@ matrix:
   - env: 'TOX_ENV=py35-django18,codacy'
   - env: 'TOX_ENV=py36-django18,codacy'
   - env: 'TOX_ENV=pypy-django18,codacy'
+  - {python: '3.5', env: TOX_ENV=checkstyle}
+  - {python: '3.5', env: TOX_ENV=checkspell}
   - {python: '3.5', env: TOX_ENV=checklink}
   - {python: 3.7-dev}
 addons:

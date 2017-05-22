@@ -73,10 +73,25 @@ For merging, you should:
 3. Add a note to ``CHANGELOG.rst`` about the changes.
 4. Add yourself to ``AUTHORS.rst``.
 
-.. [1] If you don't have all the necessary python versions available locally you can rely on Travis - it will
-       `run the tests <https://travis-ci.org/Pawamoy/django-zxcvbn-password/pull_requests>`_ for each change you add in the pull request.
+.. [1] If you don't have all the necessary python versions available locally you can rely on...
 
-       It will be slower though ...
+       - **Travis**: it will `run the tests <https://travis-ci.org/Pawamoy/django-zxcvbn-password/pull_requests>`_ for each change you add in the pull request.
+         It will be slower though...
+
+       - **pyenv**:
+
+         .. code:: bash
+
+              # important libraries to compile Python
+              sudo apt install -y libssl-dev openssl zlib1g-dev sqlite3 libsqlite3-dev libbz2-dev bzip2
+
+              git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+              export PATH="${HOME}/.pyenv/bin:${PATH}"
+              eval "$(pyenv init -)"
+
+              pyenv install 3.5.3
+              pyenv install 3.6.0  # etc.
+              pyenv global system 3.5.3 3.6.0
 
 Tips
 ----

@@ -21,7 +21,6 @@ try:
                 'ENGINE': 'django.db.backends.sqlite3',
             }
         },
-        ROOT_URLCONF='zxcvbn_password.urls',
         INSTALLED_APPS=[
             'django.contrib.auth',
             'django.contrib.contenttypes',
