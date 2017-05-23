@@ -1,46 +1,52 @@
 sudo: false
 language: python
 branches:
-  only: [master]
-cache:
-  directories: [$HOME/.cache/pip]
+  except: [cookiecutter]
+cache: pip
 matrix:
   include:
-  - {python: '3.5', env: TOX_ENV=docs}
-  - {python: '3.5', env: TOX_ENV=checksetup}
-  - {python: '3.5', env: TOX_ENV=checksafety}
-  - {python: '3.5', env: TOX_ENV=checkstyle}
-  - {python: '3.5', env: TOX_ENV=checkspell}
-  - {python: '3.5', env: TOX_ENV=checklink}
-  - {python: '2.7', env: 'TOX_ENV=py27-django18,codacy'}
-  - {python: '2.7', env: 'TOX_ENV=py27-django19,codacy'}
-  - {python: '2.7', env: 'TOX_ENV=py27-django110,codacy'}
-  - {python: '3.4', env: 'TOX_ENV=py34-django18,codacy'}
-  - {python: '3.4', env: 'TOX_ENV=py34-django19,codacy'}
-  - {python: '3.4', env: 'TOX_ENV=py34-django110,codacy'}
-  - {python: '3.5', env: 'TOX_ENV=py35-django18,codacy'}
-  - {python: '3.5', env: 'TOX_ENV=py35-django19,codacy'}
-  - {python: '3.5', env: 'TOX_ENV=py35-django110,codacy'}
-  - {python: '3.6', env: 'TOX_ENV=py36-django18,codacy'}
-  - {python: '3.6', env: 'TOX_ENV=py36-django19,codacy'}
-  - {python: '3.6', env: 'TOX_ENV=py36-django110,codacy'}
-  - {python: 3.7-dev, env: 'TOX_ENV=py37-dev-django18,codacy'}
-  - {python: 3.7-dev, env: 'TOX_ENV=py37-dev-django19,codacy'}
-  - {python: 3.7-dev, env: 'TOX_ENV=py37-dev-django110,codacy'}
-  - {python: pypy, env: 'TOX_ENV=pypy-django18,codacy'}
-  - {python: pypy, env: 'TOX_ENV=pypy-django19,codacy'}
-  - {python: pypy, env: 'TOX_ENV=pypy-django110,codacy'}
+  - {stage: check, python: '3.5', env: TOX_ENV=setup}
+  - {stage: check, python: '3.5', env: TOX_ENV=safety}
+  - {stage: check, python: '3.5', env: TOX_ENV=style}
+  - {stage: check, python: '3.5', env: TOX_ENV=docs}
+  - {stage: check, python: '3.5', env: TOX_ENV=spell}
+  - {stage: check, python: '3.5', env: TOX_ENV=link}
+  - {stage: test, after_success: 'tox -e codacy,', python: '2.7', env: TOX_ENV=py27-django18}
+  - {stage: test, after_success: 'tox -e codacy,', python: '2.7', env: TOX_ENV=py27-django19}
+  - {stage: test, after_success: 'tox -e codacy,', python: '2.7', env: TOX_ENV=py27-django110}
+  - {stage: test, after_success: 'tox -e codacy,', python: '2.7', env: TOX_ENV=py27-django111}
+  - {stage: test, after_success: 'tox -e codacy,', python: '3.4', env: TOX_ENV=py34-django18}
+  - {stage: test, after_success: 'tox -e codacy,', python: '3.4', env: TOX_ENV=py34-django19}
+  - {stage: test, after_success: 'tox -e codacy,', python: '3.4', env: TOX_ENV=py34-django110}
+  - {stage: test, after_success: 'tox -e codacy,', python: '3.4', env: TOX_ENV=py34-django111}
+  - {stage: test, after_success: 'tox -e codacy,', python: '3.5', env: TOX_ENV=py35-django18}
+  - {stage: test, after_success: 'tox -e codacy,', python: '3.5', env: TOX_ENV=py35-django19}
+  - {stage: test, after_success: 'tox -e codacy,', python: '3.5', env: TOX_ENV=py35-django110}
+  - {stage: test, after_success: 'tox -e codacy,', python: '3.5', env: TOX_ENV=py35-django111}
+  - {stage: test, after_success: 'tox -e codacy,', python: '3.6', env: TOX_ENV=py36-django18}
+  - {stage: test, after_success: 'tox -e codacy,', python: '3.6', env: TOX_ENV=py36-django19}
+  - {stage: test, after_success: 'tox -e codacy,', python: '3.6', env: TOX_ENV=py36-django110}
+  - {stage: test, after_success: 'tox -e codacy,', python: '3.6', env: TOX_ENV=py36-django111}
+  - {stage: test, after_success: 'tox -e codacy,', python: 3.7-dev, env: TOX_ENV=py37-dev-django18}
+  - {stage: test, after_success: 'tox -e codacy,', python: 3.7-dev, env: TOX_ENV=py37-dev-django19}
+  - {stage: test, after_success: 'tox -e codacy,', python: 3.7-dev, env: TOX_ENV=py37-dev-django110}
+  - {stage: test, after_success: 'tox -e codacy,', python: 3.7-dev, env: TOX_ENV=py37-dev-django111}
+  - {stage: test, after_success: 'tox -ecodacy,', python: pypy, env: TOX_ENV=pypy-django18}
+  - {stage: test, after_success: 'tox -ecodacy,', python: pypy, env: TOX_ENV=pypy-django19}
+  - {stage: test, after_success: 'tox -ecodacy,', python: pypy, env: TOX_ENV=pypy-django110}
+  - {stage: test, after_success: 'tox -ecodacy,', python: pypy, env: TOX_ENV=pypy-django111}
   fast_finish: true
   allow_failures:
-  - env: 'TOX_ENV=py27-django18,codacy'
-  - env: 'TOX_ENV=py34-django18,codacy'
-  - env: 'TOX_ENV=py35-django18,codacy'
-  - env: 'TOX_ENV=py36-django18,codacy'
-  - env: 'TOX_ENV=pypy-django18,codacy'
-  - {python: '3.5', env: TOX_ENV=checkstyle}
-  - {python: '3.5', env: TOX_ENV=checkspell}
-  - {python: '3.5', env: TOX_ENV=checklink}
-  - {python: 3.7-dev}
+  - {stage: check, python: '3.5', env: TOX_ENV=style}
+  - {stage: check, python: '3.5', env: TOX_ENV=spell}
+  - {stage: check, python: '3.5', env: TOX_ENV=link}
+  - {stage: test, after_success: 'tox -e codacy', python: '2.7', env: TOX_ENV=py27-django18}
+  - {stage: test, after_success: 'tox -e codacy', python: '3.4', env: TOX_ENV=py34-django18}
+  - {stage: test, after_success: 'tox -e codacy', python: '3.5', env: TOX_ENV=py35-django18}
+  - {stage: test, after_success: 'tox -e codacy', python: '3.6', env: TOX_ENV=py36-django18}
+  - {stage: test, after_success: 'tox -e codacy', python: '3.6', env: TOX_ENV=py37-dev-django18}
+  - {stage: test, after_success: 'tox -e codacy', python: '3.6', env: TOX_ENV=pypy-django18}
+  - {stage: test, python: 3.7-dev}
 addons:
   apt:
     packages: [libenchant-dev]
