@@ -44,8 +44,8 @@ matrix:
   - {stage: test, after_success: 'tox -e codacy', python: '3.4', env: TOX_ENV=py34-django18}
   - {stage: test, after_success: 'tox -e codacy', python: '3.5', env: TOX_ENV=py35-django18}
   - {stage: test, after_success: 'tox -e codacy', python: '3.6', env: TOX_ENV=py36-django18}
-  - {stage: test, after_success: 'tox -e codacy', python: '3.6', env: TOX_ENV=py37-dev-django18}
-  - {stage: test, after_success: 'tox -e codacy', python: '3.6', env: TOX_ENV=pypy-django18}
+  - {stage: test, after_success: 'tox -e codacy', python: 3.7-dev, env: TOX_ENV=py37-dev-django18}
+  - {stage: test, after_success: 'tox -e codacy', python: pypy, env: TOX_ENV=pypy-django18}
   - {stage: test, python: 3.7-dev}
 addons:
   apt:
