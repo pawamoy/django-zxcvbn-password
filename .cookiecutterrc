@@ -25,7 +25,7 @@ default_context:
     distribution_name:               'django-zxcvbn-password'
     django:                          'yes'
     django_fake_model:               'no'
-    django_versions:                 '1.8,1.9,1.10'
+    django_versions:                 '1.8,1.9,1.10,1.11'
     email:                           'timothee.mazzucotelli@gmail.com'
     full_name:                       'Timothee Mazzucotelli'
     github_username:                 'Pawamoy'
