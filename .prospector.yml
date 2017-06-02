@@ -1,0 +1,47 @@
+strictness: veryhigh
+autodetect: true
+max-line-length: 79
+doc-warnings: true
+member-warnings: false
+test-warnings: false
+output-format: grouped
+ignore-patterns:
+  - ^\.tox/.*
+  - ^\.env/.*
+  - ^docs/.*
+  - ^tests/.*
+  - ^build/.*
+  - ^dist/.*
+  - .*/migrations/.*
+  - ^runtests\.py
+
+dodgy:
+  run: true
+frosted:
+  disable: [E401]
+  run: true
+mccabe:
+  options: {max-complexity: 10}
+  run: true
+pep257:
+  disable: [D000, D203]
+  run: true
+pep8:
+  full: true
+  options: {max-line-length: 79, single-line-if-stmt: n}
+  run: true
+profile-validator:
+  run: true
+pyflakes:
+  run: true
+pylint:
+  disable: [bad-continuation, missing-docstring, no-name-in-module, no-member, fixme, empty-docstring, django-not-available]
+  options: {max-attributes: 7, max-branches: 12, max-line-length: 79, max-locals: 15,
+    max-module-lines: 1000, max-parents: 7, max-public-methods: 20, max-returns: 6,
+    max-statements: 50, min-public-methods: 2}
+  run: true
+pyroma:
+  disable: [PYR19, PYR16, PYR15]
+  run: true
+vulture:
+  run: true
