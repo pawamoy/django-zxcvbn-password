@@ -75,22 +75,34 @@ Usage
 .. code:: python
 
     # settings.py
+    
+    INSTALLED_APPS = [
+        ...
+        'zxcvbn_password',
+        ...
+    ]
 
-    AUTH_PASSWORD_VALIDATORS = [{
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    }, {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    }, {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    }, {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    }, {
-        'NAME': 'zxcvbn_password.ZXCVBNValidator',
-        'OPTIONS': {
-            'min_score': 3,
-            'user_attributes': ('username', 'email', 'first_name', 'last_name')
+    AUTH_PASSWORD_VALIDATORS = [
+        {
+            'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        },
+        {
+            'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        },
+        {
+            'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        },
+        {
+            'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        },
+        {
+            'NAME': 'zxcvbn_password.ZXCVBNValidator',
+            'OPTIONS': {
+                'min_score': 3,
+                'user_attributes': ('username', 'email', 'first_name', 'last_name')
+            }
         }
-    }]
+    ]
 
 .. code:: python
 
