@@ -1,2 +1,2 @@
 -r base.txt
-tox==2.8.1
+tox==2.8.2
