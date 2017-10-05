@@ -24,7 +24,7 @@ mccabe:
   options: {max-complexity: 10}
   run: true
 pep257:
-  disable: [D000, D203]
+  disable: [D000, D105, D203, D212, D401, D406, D407, D413]
   run: true
 pep8:
   full: true
@@ -35,7 +35,7 @@ profile-validator:
 pyflakes:
   run: true
 pylint:
-  disable: [bad-continuation, missing-docstring, no-name-in-module, no-member, fixme, empty-docstring, django-not-available]
+  disable: [bad-continuation, no-name-in-module, no-member, fixme, empty-docstring, django-not-available, invalid-name, too-few-public-methods]
   options: {max-attributes: 7, max-branches: 12, max-line-length: 79, max-locals: 15,
     max-module-lines: 1000, max-parents: 7, max-public-methods: 20, max-returns: 6,
     max-statements: 50, min-public-methods: 2}

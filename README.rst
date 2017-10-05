@@ -32,11 +32,11 @@ Django ZXCVBN Password
     :alt: Updates
 
 .. |version| image:: https://img.shields.io/pypi/v/django-zxcvbn-password.svg?style=flat
-    :target: https://pypi.python.org/pypi/django-zxcvbn-password/
+    :target: https://pypi.org/project/django-zxcvbn-password/
     :alt: PyPI Package latest release
 
 .. |wheel| image:: https://img.shields.io/pypi/wheel/django-zxcvbn-password.svg?style=flat
-    :target: https://pypi.python.org/pypi/django-zxcvbn-password/
+    :target: https://pypi.org/project/django-zxcvbn-password/
     :alt: PyPI Wheel
 
 .. |gitter| image:: https://badges.gitter.im/Pawamoy/django-zxcvbn-password.svg
