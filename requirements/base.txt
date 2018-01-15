@@ -1,1 +1,1 @@
-zxcvbn-python==4.4.18
+zxcvbn-python==4.4.19
