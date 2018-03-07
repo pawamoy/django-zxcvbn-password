@@ -10,13 +10,17 @@ from django.utils.translation import ugettext_lazy as _
 from zxcvbn import zxcvbn
 
 
+DEFAULT_MIN_SCORE = 3
+
+
 class ZXCVBNValidator(object):
     """ZXCVBN validator."""
 
     code = 'password_too_weak'
     DEFAULT_USER_ATTRIBUTES = ('username', 'first_name', 'last_name', 'email')
 
-    def __init__(self, min_score=3, user_attributes=DEFAULT_USER_ATTRIBUTES):
+    def __init__(self, min_score=DEFAULT_MIN_SCORE,
+                 user_attributes=DEFAULT_USER_ATTRIBUTES):
         """
         Init method.
 
@@ -24,6 +28,10 @@ class ZXCVBNValidator(object):
             min_score (int): minimum score to accept (between 0 and 4).
             user_attributes (tuple): list of user attributes to check.
         """
+        if min_score < 1:
+            min_score = 1
+        elif min_score > 4:
+            min_score = 4
         self.min_score = min_score
         self.user_attributes = user_attributes
 

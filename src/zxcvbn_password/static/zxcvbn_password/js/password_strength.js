@@ -36,18 +36,20 @@ $(function($) {
         var password_strength_bar = $(this).parent().find('.password_strength_bar');
         var password_strength_info = $(this).parent().find('.password_strength_info');
 
+        var min_score = parseInt(password_strength_bar.attr('aria-valuemin'));
+
         if( $(this).val() ) {
             var result = zxcvbn($(this).val());
             var crack_time = result.crack_times_display.online_no_throttling_10_per_second;
 
             if (result.score < 1) {
-                password_strength_bar.removeClass('progress-bar-success').addClass('progress-bar-danger');
+                password_strength_bar.removeClass('progress-bar-success progress-bar-warning').addClass('progress-bar-danger');
                 password_strength_info.find('.label').removeClass('hidden');
-            } else if (result.score < 3) {
-                password_strength_bar.removeClass('progress-bar-danger').addClass('progress-bar-warning');
+            } else if (result.score < min_score) {
+                password_strength_bar.removeClass('progress-bar-success progress-bar-danger').addClass('progress-bar-warning');
                 password_strength_info.find('.label').removeClass('hidden');
             } else {
-                password_strength_bar.removeClass('progress-bar-warning').addClass('progress-bar-success');
+                password_strength_bar.removeClass('progress-bar-warning progress-bar-danger').addClass('progress-bar-success');
                 password_strength_info.find('.label').addClass('hidden');
             }
 
