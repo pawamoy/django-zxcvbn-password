@@ -69,13 +69,20 @@ Installation
 
     pip install django-zxcvbn-password
 
+
+Requirements
+============
+
+The JavaScript code of this application uses JQuery, but JQuery is not bundled
+with it. Please install it separately. You might also want to use Bootstrap.
+
 Usage
 =====
 
 .. code:: python
 
     # settings.py
-    
+
     INSTALLED_APPS = [
         ...
         'zxcvbn_password',
@@ -116,10 +123,15 @@ Usage
         password2 = PasswordConfirmationField(confirm_with=’password1’)
 
 
-.. note::
+.. code:: python
 
-    Remember to include ``{{ form.media }}`` in your template.
-    Please refer to the documentation of the two upstream repositories for more information.
+    # views.py
+
+    if form.is_valid():
+        user = User.objects.create_user(
+            username=...,
+            password=form.cleaned_data['password1']
+        )
 
 
 By default, other inputs won't be used to compute the score, but you can enforce it
@@ -129,24 +141,70 @@ like this:
 
     # forms.py
 
+    from django import forms
     from zxcvbn_password import zxcbnn
+    from zxcvbn_password.fields import PasswordField, PasswordConfirmationField
 
-    # in your form class
-    def clean():
-        password = self.cleaned_data.get('password')
-        other_field1 = ...
-        other_field2 = ...
+    class RegisterForm(forms.Form):
+        password1 = PasswordField()
+        password2 = PasswordConfirmationField(confirm_with=’password1’)
 
-        if password:
-            score = zxcvbn(password, [other_field1, other_field2])['score']
-            # raise forms.ValidationError if needed
+        def clean():
+            password = self.cleaned_data.get('password1')
+            other_field1 = ...
+            other_field2 = ...
 
-        return self.cleaned_data
+            if password:
+                score = zxcvbn(password, [other_field1, other_field2])['score']
+                # score is between 0 and 4
+                # raise forms.ValidationError if needed
+
+            return self.cleaned_data
+
 
 Screen-shot
 ===========
 
 .. image:: https://cloud.githubusercontent.com/assets/3999221/23079032/5ae1513a-f54b-11e6-9d66-90660ad5fb2d.png
+
+
+.. important::
+
+    The password field's widget declares two JavaScript files that must be added to the HTML page.
+    To do so, add ``{{ form.media }}`` in your template, something like:
+
+    .. code:: html
+
+        <form role="form" action="my_url" method="post">
+          {% csrf_token %}
+          {{ form }}
+        </form>
+
+        {% block js %}
+          {{ block.super }}
+          {{ form.media }}
+        {% endblock %}
+
+
+.. note::
+
+    If you are not using Bootstrap, the strength bar will not have colors.
+    You can fix this with these three CSS rules:
+
+    .. code:: css
+
+        .progress-bar-warning {
+            background-color: yellow;
+        }
+
+        .progress-bar-danger {
+            background-color: red;
+        }
+
+        .progress-bar-success {
+            background-color: green;
+        }
+
 
 Documentation
 =============
