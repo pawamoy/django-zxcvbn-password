@@ -55,5 +55,5 @@ class ZXCVBNValidator(object):
 
     # pylama:ignore=R0201
     def get_help_text(self):
-        """Help text to print when ValidationError."""
-        return _("Your password must be stronger.")
+        """Help text displayed in User forms."""
+        return _("Your password can't contain repeated words or characters.")
