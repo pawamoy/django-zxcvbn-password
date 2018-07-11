@@ -4,6 +4,7 @@ graft docs
 
 include .cookiecutterrc
 include .editorconfig
+include .commitlintrc.js
 
 include AUTHORS.rst
 include CHANGELOG.rst
