@@ -15,10 +15,6 @@ jobs:
   - {stage: test, after_success: 'tox -e codacy', python: '2.7', env: TOX_ENV=py27-django19}
   - {stage: test, after_success: 'tox -e codacy', python: '2.7', env: TOX_ENV=py27-django110}
   - {stage: test, after_success: 'tox -e codacy', python: '2.7', env: TOX_ENV=py27-django111}
-  - {stage: test, after_success: 'tox -e codacy', python: '3.4', env: TOX_ENV=py34-django18}
-  - {stage: test, after_success: 'tox -e codacy', python: '3.4', env: TOX_ENV=py34-django19}
-  - {stage: test, after_success: 'tox -e codacy', python: '3.4', env: TOX_ENV=py34-django110}
-  - {stage: test, after_success: 'tox -e codacy', python: '3.4', env: TOX_ENV=py34-django111}
   - {stage: test, after_success: 'tox -e codacy', python: '3.5', env: TOX_ENV=py35-django18}
   - {stage: test, after_success: 'tox -e codacy', python: '3.5', env: TOX_ENV=py35-django19}
   - {stage: test, after_success: 'tox -e codacy', python: '3.5', env: TOX_ENV=py35-django110}
@@ -33,10 +29,12 @@ jobs:
   - {stage: test, after_success: 'tox -e codacy', python: 3.7-dev, env: TOX_ENV=py37-dev-django19}
   - {stage: test, after_success: 'tox -e codacy', python: 3.7-dev, env: TOX_ENV=py37-dev-django110}
   - {stage: test, after_success: 'tox -e codacy', python: 3.7-dev, env: TOX_ENV=py37-dev-django111}
+  - {stage: test, after_success: 'tox -e codacy', python: 3.7-dev, env: TOX_ENV=py37-dev-django20}
   - {stage: test, after_success: 'tox -e codacy', python: pypy, env: TOX_ENV=pypy-django18}
   - {stage: test, after_success: 'tox -e codacy', python: pypy, env: TOX_ENV=pypy-django19}
   - {stage: test, after_success: 'tox -e codacy', python: pypy, env: TOX_ENV=pypy-django110}
   - {stage: test, after_success: 'tox -e codacy', python: pypy, env: TOX_ENV=pypy-django111}
+  - {stage: test, after_success: 'tox -e codacy', python: pypy, env: TOX_ENV=pypy-django20}
   fast_finish: true
   allow_failures:
   - {stage: check, env: TOX_ENV=style}
@@ -49,6 +47,7 @@ jobs:
   - {stage: test, env: TOX_ENV=py37-dev-django18}
   - {stage: test, env: TOX_ENV=pypy-django18}
   - {stage: test, python: 3.7-dev}
+  - {stage: test, python: pypy}
 addons:
   apt:
     packages: [libenchant-dev]
