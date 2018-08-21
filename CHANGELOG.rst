@@ -2,6 +2,24 @@
 Changelog
 =========
 
+2.0.2 (2018-08-21)
+==================
+
+Documented
+----------
+- Improve usage notes (7a1ed42). Related issues/PRs: #31.
+
+Fixed
+-----
+- Fix call to super in PasswordConfirmationInput (fc551b8).
+- Improve password validator help text (c5d21a1). Related issues/PRs: #46.
+- Strength bar color go green only when superior to min score (9a44fd8). Related issues/PRs: #3.
+
+Tests
+-----
+- Add django 1.11 tests (815aaef).
+- Add py37/pypy plus django 2.0 tests, remove py34 tests (05711cd).
+
 2.0.1 (2017-02-17)
 ==================
 
