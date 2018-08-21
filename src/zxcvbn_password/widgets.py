@@ -56,7 +56,7 @@ class PasswordStrengthInput(PasswordInput):
         except KeyError:
             self.attrs['class'] = 'password_strength'
 
-        return mark_safe(super(PasswordStrengthInput, self).render(
+        return mark_safe(super(PasswordStrengthInput, self).render(  # nosec
             name, value, attrs) + strength_markup)
 
     class Media(object):
@@ -97,5 +97,5 @@ class PasswordConfirmationInput(PasswordInput):
         except KeyError:
             self.attrs['class'] = 'password_confirmation'
 
-        return mark_safe(super(PasswordConfirmationInput, self).render(
+        return mark_safe(super(PasswordConfirmationInput, self).render(  # nosec
             name, value, attrs) + confirmation_markup)
