@@ -142,14 +142,14 @@ like this:
     # forms.py
 
     from django import forms
-    from zxcvbn_password import zxcbnn
+    from zxcvbn_password import zxcvbn
     from zxcvbn_password.fields import PasswordField, PasswordConfirmationField
 
     class RegisterForm(forms.Form):
         password1 = PasswordField()
         password2 = PasswordConfirmationField(confirm_with=’password1’)
 
-        def clean():
+        def clean(self):
             password = self.cleaned_data.get('password1')
             other_field1 = ...
             other_field2 = ...
