@@ -217,3 +217,11 @@ Development
 ===========
 
 To run all the tests: ``tox``
+
+Similar projects
+================
+
+You should check out `django-zxcvbn-password-validator`_
+for backend validation only, but with a good UX  and translated messages.
+
+.. _django-zxcvbn-password-validator: https://github.com/Pierre-Sassoulas/django-zxcvbn-password-validator
