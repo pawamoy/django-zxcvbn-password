@@ -2,6 +2,12 @@
 Changelog
 =========
 
+2.0.3 (2019-02-21)
+==================
+
+- Use new location for package ``python-zxcvbn``, now ``zxcvbn`` (2ea1b69).
+
+
 2.0.2 (2018-08-21)
 ==================
 

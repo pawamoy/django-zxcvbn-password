@@ -28,7 +28,7 @@ def read(*names, **kwargs):
 
 setup(
     name='django-zxcvbn-password',
-    version='2.0.2',
+    version='2.0.3',
     license='ISC',
     description='Back-end and Front-end password validation with ZXCVBN.',
     long_description='%s\n%s' % (
