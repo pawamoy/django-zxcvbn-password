@@ -67,7 +67,7 @@ setup(
         'django', 'zxcvbn', 'password',
     ],
     install_requires=[
-        'zxcvbn'
+        'zxcvbn', "django-zxcvbn-password-validator"
     ],
     dependency_links=[
         # 'https://github.com/moreati/python-zxcvbn/tarball/master'
