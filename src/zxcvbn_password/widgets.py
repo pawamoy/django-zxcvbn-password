@@ -82,7 +82,7 @@ class PasswordConfirmationInput(PasswordInput):
             self.attrs['data-confirm-with'] = 'id_%s' % self.confirm_with
 
         confirmation_markup = """
-        <div style="margin-top: 10px;" class="hidden password_strength_info">
+        <div style="margin-top: 10px;" class="hidden password_strength_info1">
             <p class="text-muted">
                 <span class="label label-danger">
                     %s
