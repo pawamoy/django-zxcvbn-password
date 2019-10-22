@@ -17,9 +17,15 @@ jobs:
   - {stage: test, after_success: 'tox -e codacy', python: '3.6', env: TOX_ENV=py36-django111}
   - {stage: test, after_success: 'tox -e codacy', python: '3.6', env: TOX_ENV=py36-django21}
   - {stage: test, after_success: 'tox -e codacy', python: '3.6', env: TOX_ENV=py36-django22}
-  - {stage: test, after_success: 'tox -e codacy', python: 3.7-dev, env: TOX_ENV=py37-django111}
-  - {stage: test, after_success: 'tox -e codacy', python: 3.7-dev, env: TOX_ENV=py37-django21}
-  - {stage: test, after_success: 'tox -e codacy', python: 3.7-dev, env: TOX_ENV=py37-django22}
+  - {stage: test, after_success: 'tox -e codacy', python: '3.7', env: TOX_ENV=py37-django111}
+  - {stage: test, after_success: 'tox -e codacy', python: '3.7', env: TOX_ENV=py37-django21}
+  - {stage: test, after_success: 'tox -e codacy', python: '3.7', env: TOX_ENV=py37-django22}
+  - {stage: test, after_success: 'tox -e codacy', python: '3.8', env: TOX_ENV=py38-django111}
+  - {stage: test, after_success: 'tox -e codacy', python: '3.8', env: TOX_ENV=py38-django21}
+  - {stage: test, after_success: 'tox -e codacy', python: '3.8', env: TOX_ENV=py38-django22}
+  - {stage: test, after_success: 'tox -e codacy', python: '3.9-dev', env: TOX_ENV=py39-dev-django111}
+  - {stage: test, after_success: 'tox -e codacy', python: '3.9-dev', env: TOX_ENV=py39-dev-django21}
+  - {stage: test, after_success: 'tox -e codacy', python: '3.9-dev', env: TOX_ENV=py39-dev-django22}
   - {stage: test, after_success: 'tox -e codacy', python: pypy, env: TOX_ENV=pypy-django111}
   - {stage: test, after_success: 'tox -e codacy', python: pypy, env: TOX_ENV=pypy-django21}
   - {stage: test, after_success: 'tox -e codacy', python: pypy, env: TOX_ENV=pypy-django22}
@@ -28,6 +34,9 @@ jobs:
   - {stage: check, env: TOX_ENV=style}
   - {stage: check, env: TOX_ENV=spell}
   - {stage: check, env: TOX_ENV=link}
+  - {stage: test, env: TOX_ENV=py39-dev-django111}
+  - {stage: test, env: TOX_ENV=py39-dev-django21}
+  - {stage: test, env: TOX_ENV=py39-dev-django22}
   - {stage: test, python: pypy}
 addons:
   apt:
