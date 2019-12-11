@@ -161,6 +161,28 @@ like this:
 
             return self.cleaned_data
 
+Custom frequency lists
+======================
+zxcvbn-python provides a feature to add custom frequency lists, you can specify your
+own custom frequency lists in the validator by adding frequency_lists to AUTH_PASSWORD_VALIDATORS, where dutch_words
+is a list of strings:
+
+.. code:: python
+
+    # settings.py
+
+    AUTH_PASSWORD_VALIDATORS = [
+        ...
+        {
+            'NAME': 'zxcvbn_password.ZXCVBNValidator',
+            'OPTIONS': {
+                'frequency_lists': {
+                    'dutch': dutch_words,
+                }
+            }
+        }
+    ]
+
 
 Screen-shot
 ===========

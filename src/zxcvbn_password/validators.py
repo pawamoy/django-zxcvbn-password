@@ -8,6 +8,7 @@ from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _
 
 from zxcvbn import zxcvbn
+from zxcvbn.matching import add_frequency_lists
 
 
 DEFAULT_MIN_SCORE = 3
@@ -20,7 +21,8 @@ class ZXCVBNValidator(object):
     DEFAULT_USER_ATTRIBUTES = ('username', 'first_name', 'last_name', 'email')
 
     def __init__(self, min_score=DEFAULT_MIN_SCORE,
-                 user_attributes=DEFAULT_USER_ATTRIBUTES):
+                 user_attributes=DEFAULT_USER_ATTRIBUTES,
+                 frequency_lists=None):
         """
         Init method.
 
@@ -32,8 +34,10 @@ class ZXCVBNValidator(object):
             min_score = 1
         elif min_score > 4:
             min_score = 4
+
         self.min_score = min_score
         self.user_attributes = user_attributes
+        self.frequency_lists = frequency_lists or {}
 
     def __call__(self, value):
         """Call method, run self.validate (can be used in form fields)."""
@@ -46,6 +50,8 @@ class ZXCVBNValidator(object):
             for attribute in self.user_attributes:
                 if hasattr(user, attribute):
                     user_inputs.append(getattr(user, attribute))
+
+        add_frequency_lists(self.frequency_lists)
 
         results = zxcvbn(password, user_inputs=user_inputs)
         if results.get('score', 0) < self.min_score:
