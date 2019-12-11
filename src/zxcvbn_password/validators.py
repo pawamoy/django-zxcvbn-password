@@ -22,7 +22,7 @@ class ZXCVBNValidator(object):
 
     def __init__(self, min_score=DEFAULT_MIN_SCORE,
                  user_attributes=DEFAULT_USER_ATTRIBUTES,
-                 frequency_lists={}):
+                 frequency_lists=None):
         """
         Init method.
 
@@ -34,9 +34,10 @@ class ZXCVBNValidator(object):
             min_score = 1
         elif min_score > 4:
             min_score = 4
+
         self.min_score = min_score
         self.user_attributes = user_attributes
-        self.frequency_lists = frequency_lists
+        self.frequency_lists = frequency_lists or {}
 
     def __call__(self, value):
         """Call method, run self.validate (can be used in form fields)."""
