@@ -3,12 +3,10 @@
 """Widgets for form fields."""
 
 from __future__ import unicode_literals
-
+from django.conf import settings
 from django.forms import PasswordInput
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext as _
-
-from .utils import zxcvbn_min_score
 
 
 class PasswordStrengthInput(PasswordInput):
@@ -16,7 +14,7 @@ class PasswordStrengthInput(PasswordInput):
 
     def render(self, name, value, attrs=None, **kwargs):
         """Widget render method."""
-        min_score = zxcvbn_min_score()
+        min_score = settings.PASSWORD_MINIMAL_STRENGH
         message_title = _('Warning')
         message_body = _(
             'This password would take '
