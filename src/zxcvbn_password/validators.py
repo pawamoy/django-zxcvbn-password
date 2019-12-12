@@ -55,9 +55,9 @@ class ZXCVBNValidator(object):
 
         results = zxcvbn(password, user_inputs=user_inputs)
         if results.get('score', 0) < self.min_score:
-            feedback = ', '.join(
-                results.get('feedback', {}).get('suggestions', []))
-            raise ValidationError(_(feedback), code=self.code, params={})
+            suggestions = results.get('feedback', {}).get('suggestions', [])
+            warnings = [results.get('feedback', {}).get('warning', [])]
+            raise ValidationError([_(msg) for msg in [*warnings, *suggestions]], code=self.code, params={})
 
     # pylama:ignore=R0201
     def get_help_text(self):
