@@ -2,6 +2,12 @@
 Changelog
 =========
 
+2.1.0 (2019-12-15)
+==================
+
+- Allow specifying frequency lists in ``ZXCVBNValidator`` options (baa47cd).
+- Return warnings as validationErrors, create list of warning/suggestion to return as ValidationError(s), fixing translations (12946bb).
+
 2.0.3 (2019-02-21)
 ==================
 
