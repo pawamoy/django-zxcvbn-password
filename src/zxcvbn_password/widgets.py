@@ -6,7 +6,7 @@ from __future__ import unicode_literals
 
 from django.forms import PasswordInput
 from django.utils.safestring import mark_safe
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 
 from .utils import zxcvbn_min_score
 
