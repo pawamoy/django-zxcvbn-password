@@ -12,9 +12,7 @@ esac
 
 if [ ${proceed} -eq 1 ]; then
   python setup.py clean --all sdist bdist_wheel
-  if twine upload --skip-existing dist/* -r pypitest; then
-    if ! twine upload --skip-existing dist/* -r pypi; then
-      echo "Twine upload to PyPi failed" >&2
-    fi; else echo "Twine upload to PyPiTest failed" >&2
+  if ! twine upload --skip-existing dist/* -r pypi; then
+    echo "Twine upload to PyPi failed" >&2
   fi; else echo "Then make tox happy." >&2
 fi
