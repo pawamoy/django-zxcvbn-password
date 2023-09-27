@@ -42,9 +42,11 @@ Django ZXCVBN Password
     :target: https://gitter.im/Pawamoy/django-zxcvbn-password
     :alt: Join the chat at https://gitter.im/Pawamoy/django-zxcvbn-password
 
-
-
 .. end-badges
+
+
+Warning :warning:: This project is not maintained anymore.
+Feel free to reach out if you want to take over maintenance.
 
 Back-end and Front-end password validation with ZXCVBN.
 
